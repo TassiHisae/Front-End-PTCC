@@ -1,0 +1,12 @@
+{
+  "name": "smartpet-mobile",
+  "displayName": "smartpet-mobile",
+  "expo": {
+    "name": "smartpet-mobile",
+    "slug": "smartpet-mobile",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
