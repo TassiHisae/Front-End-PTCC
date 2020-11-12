@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import createRouter from "./routes";
+import createRouter from './routes';
 
 function App() {
   const Routes = createRouter(true);

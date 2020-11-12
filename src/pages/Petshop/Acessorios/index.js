@@ -1,24 +1,28 @@
-import React from "react";
-import { View } from "react-native";
+import React from 'react';
 
-import ItensList from "../ItensList";
-import { Container, List } from "./styles";
-import { acessorios } from "../../../data/data";
+import ItensList from '../ItensList';
+import { Container, List } from './styles';
+import { acessorios } from '../../../data/data';
 
-function Acessorios() {
+function Acessorios({ navigation }) {
   return (
     <Container>
       <List
         data={acessorios}
         keyExtractor={(item) => String(item.id)}
-        renderItem={(item) => <ItensList item={item} />}
+        renderItem={(item) => (
+          <ItensList
+            onPress={() => navigation.navigate('Produto')}
+            item={item}
+          />
+        )}
       />
     </Container>
   );
 }
 
 Acessorios.navigationOptions = {
-  title: "Acessórios",
+  title: 'Acessórios',
 };
 
 export default Acessorios;

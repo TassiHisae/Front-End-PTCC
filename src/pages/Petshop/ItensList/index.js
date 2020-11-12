@@ -1,6 +1,6 @@
-import React from "react";
-import Icon from "react-native-vector-icons/MaterialIcons";
-import { MaterialCommunityIcons } from "react-native-vector-icons";
+import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { MaterialCommunityIcons } from 'react-native-vector-icons';
 
 import {
   Container,
@@ -13,11 +13,11 @@ import {
   RamoAtuacao,
   TempoDeEntrega,
   ValorFrete,
-} from "./styles";
+} from './styles';
 
-function Avaliado({ item }) {
+function Avaliado({ item, ...rest }) {
   return (
-    <Container>
+    <Container {...rest}>
       <Left>
         <SymbleEnterprise
           color={item.item.color}
@@ -29,7 +29,7 @@ function Avaliado({ item }) {
           <Name>{item.item.name}</Name>
           <Adicionais>
             <RamoAtuacao>
-              <TempoDeEntrega>{item.item.categoria + " "}</TempoDeEntrega>
+              <TempoDeEntrega>{item.item.categoria + ' '}</TempoDeEntrega>
               <MaterialCommunityIcons
                 name="circle"
                 size={5}
@@ -38,9 +38,9 @@ function Avaliado({ item }) {
                   marginTop: 3,
                 }}
               />
-              <TempoDeEntrega>{" " + item.item.porte}</TempoDeEntrega>
+              <TempoDeEntrega>{' ' + item.item.porte}</TempoDeEntrega>
             </RamoAtuacao>
-            <ValorFrete>Preço: {" " + item.item.valor}</ValorFrete>
+            <ValorFrete>Preço: {' ' + item.item.valor}</ValorFrete>
           </Adicionais>
         </Info>
       </Left>
