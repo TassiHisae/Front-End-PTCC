@@ -5,6 +5,20 @@ export default [
     url:
       'https://www.agenciadosite.com.br/wp-content/uploads/2017/11/logo-para-petshop-768x576.jpg',
     color: '#f76abc',
+    produtos: [
+      {
+        id: 1,
+        nome: 'Golden Carne e Arroz',
+      },
+      {
+        id: 2,
+        nome: 'Pote de água',
+      },
+      {
+        id: 3,
+        nome: 'Coleira',
+      },
+    ],
   },
   {
     id: 2,
@@ -12,6 +26,20 @@ export default [
     url:
       'https://www.agenciadosite.com.br/wp-content/uploads/2017/11/point-do-pet-768x576.jpg',
     color: '#f76abc',
+    produtos: [
+      {
+        id: 1,
+        nome: 'Golden Carne e Arroz',
+      },
+      {
+        id: 2,
+        nome: 'Pote de água',
+      },
+      {
+        id: 3,
+        nome: 'Coleira',
+      },
+    ],
   },
   {
     id: 3,
@@ -19,6 +47,20 @@ export default [
     url:
       'https://www.agenciadosite.com.br/wp-content/uploads/2017/11/logo-para-petshop-2-768x576.jpg',
     color: '#f76abc',
+    produtos: [
+      {
+        id: 1,
+        nome: 'Golden Carne e Arroz',
+      },
+      {
+        id: 2,
+        nome: 'Pote de água',
+      },
+      {
+        id: 3,
+        nome: 'Coleira',
+      },
+    ],
   },
   {
     id: 4,
@@ -26,6 +68,20 @@ export default [
     url:
       'https://www.agenciadosite.com.br/wp-content/uploads/2017/11/logo-nutripet.jpg',
     color: '#f76abc',
+    produtos: [
+      {
+        id: 1,
+        nome: 'Golden Carne e Arroz',
+      },
+      {
+        id: 2,
+        nome: 'Pote de água',
+      },
+      {
+        id: 3,
+        nome: 'Coleira',
+      },
+    ],
   },
 ];
 
@@ -36,6 +92,20 @@ export const andamento = [
     url:
       'https://www.agenciadosite.com.br/wp-content/uploads/2017/11/logo-para-petshop-768x576.jpg',
     color: '#f76abc',
+    produtos: [
+      {
+        id: 1,
+        nome: 'Golden Carne e Arroz',
+      },
+      {
+        id: 2,
+        nome: 'Pote de água',
+      },
+      {
+        id: 3,
+        nome: 'Coleira',
+      },
+    ],
   },
 ];
 

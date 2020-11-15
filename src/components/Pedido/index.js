@@ -1,6 +1,6 @@
-import React from "react";
-import Icon from "react-native-vector-icons/MaterialIcons";
-
+import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import ListPedido from '../ListPedido';
 import {
   Container,
   Content,
@@ -11,39 +11,43 @@ import {
   Right,
   PlusInfo,
   Description,
-  ListItem,
-  Product,
   Button,
   TextButton,
   ContentButton,
-} from "./styles";
+  List,
+  ContentList,
+  Touchable,
+} from './styles';
 
-function Avaliado({ item }) {
+function Pedido({ item }) {
   return (
     <Container>
       <Content>
         <Left>
-          <SymbleEnterprise
-            color={item.item.color}
-            source={{
-              uri: item.item.url,
-            }}
-          />
+          <Touchable>
+            <SymbleEnterprise
+              color={item.item.color}
+              source={{
+                uri: item.item.url,
+              }}
+            />
+          </Touchable>
           <Info>
             <Name>{item.item.name}</Name>
-            <Description>Pedido {"#" + item.item.id}</Description>
+            <Description>Pedido {'#' + item.item.id}</Description>
           </Info>
         </Left>
         <PlusInfo>
           <Icon name="info-outline" size={30} color="#333" />
         </PlusInfo>
       </Content>
-      <Content>
-        <ListItem>
-          <Icon name="looks-one" size={18} color="rgba(0,0,0,0.6)" />
-          <Product>Golden Carne e Arroz</Product>
-        </ListItem>
-      </Content>
+      <ContentList>
+        <List
+          data={item.item.produtos}
+          keyExtractor={(item) => String(item.id)}
+          renderItem={(item) => <ListPedido item={item} />}
+        />
+      </ContentList>
       <Content>
         <Left>
           <Name>Avalie seu pedido:</Name>
@@ -68,4 +72,4 @@ function Avaliado({ item }) {
   );
 }
 
-export default Avaliado;
+export default Pedido;
