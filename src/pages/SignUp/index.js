@@ -1,6 +1,4 @@
-import React from "react";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import IconAnt from "react-native-vector-icons/AntDesign";
+import React, { useState } from 'react';
 
 import {
   Container,
@@ -9,58 +7,98 @@ import {
   SubmitButton,
   SignLink,
   SignLinkText,
-  SocialText,
-  SocialMediaIcon,
-  BaseIcon,
-  ImageIcon,
   Image,
-} from "./styles";
+  FormInputSmall,
+  ViewDoubleInput,
+  TextDate,
+} from './styles';
 
-import imgGoogle from "../../assets/google.png";
-import logo from "../../assets/logo.png";
+import logo from '../../assets/logo.png';
+import { Component } from 'react';
 
-function SignUp({ navigation }) {
-  return (
-    <Container>
-      <Image source={logo} />
-      <Form>
-        <FormInput
-          icon="person-outline"
-          autoCorrect={false}
-          autoCapitalize="none"
-          placeholder="Nome"
-        />
-        <FormInput
-          icon="person-outline"
-          autoCorrect={false}
-          autoCapitalize="none"
-          placeholder="CPF"
-        />
-        <FormInput
-          icon="mail-outline"
-          keyboardType="email-address"
-          autoCorrect={false}
-          autoCapitalize="none"
-          placeholder="Email"
-        />
-        <FormInput
-          icon="lock-outline"
-          secureTextEntry
-          autoCorrect={false}
-          autoCapitalize="none"
-          placeholder="Senha"
-        />
+class SignUp extends Component {
+  constructor(props) {
+    super(props);
+    this.navigation = props.navigation;
+    this.state = {
+      date: '20-01-2001',
+    };
+  }
 
-        <SignLink onPress={() => navigation.navigate("SignIn")}>
-          <SignLinkText>Já possui uma conta? Clique aqui...</SignLinkText>
-        </SignLink>
-        
-      </Form>
-      <SubmitButton onPress={() => navigation.navigate("Home")}>
-        Cadastrar
-      </SubmitButton>
-    </Container>
-  );
+  render() {
+    return (
+      <Container>
+        <Image source={logo} />
+        <Form>
+          <FormInput
+            icon="person-outline"
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="Nome"
+          />
+          <FormInput
+            icon="person-outline"
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="CPF"
+          />
+          <FormInput
+            icon="mail-outline"
+            keyboardType="email-address"
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="Email"
+          />
+          <FormInput
+            icon="lock-outline"
+            secureTextEntry
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="Senha"
+          />
+          <ViewDoubleInput>
+            <TextDate>Data da nascimento:</TextDate>
+            <FormInputSmall
+              icon="date-range"
+              secureTextEntry
+              autoCorrect={false}
+              autoCapitalize="none"
+              date={this.state.date}
+              mode="date"
+              format="DD-MM-YYYY"
+              minDate="01-01-1930"
+              maxDate="31-12-2013"
+              confirmBtnText="Confirm"
+              cancelBtnText="Cancel"
+              dateIcon="none"
+              customStyles={{
+                dateIcon: {
+                  display: 'none',
+                },
+                dateInput: {
+                  borderWidth: 0,
+                  textAlign: 'left',
+                  position: 'absolute',
+                  left: 10,
+                  placeholderTextColor: 'rgba(0,0,0,0.6)',
+                },
+              }}
+              onDateChange={(date) => {
+                this.setState({ date: date });
+              }}
+            />
+          </ViewDoubleInput>
+
+          <SignLink onPress={() => this.navigation.navigate('SignIn')}>
+            <SignLinkText>Já possui uma conta? Clique aqui...</SignLinkText>
+          </SignLink>
+        </Form>
+        <SubmitButton onPress={() => this.navigation.navigate('Continuar')}>
+          Cadastrar
+        </SubmitButton>
+      </Container>
+    );
+  }
 }
 
 export default SignUp;

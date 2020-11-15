@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-
+import DatePicker from 'react-native-datepicker';
 export const Container = styled.View`
   padding: 0 15px;
   height: 45px;
@@ -9,11 +9,11 @@ export const Container = styled.View`
   align-items: center;
 `;
 
-export const TInput = styled.TextInput.attrs({
+export const TInput = styled(DatePicker).attrs({
   placeholderTextColor: 'rgba(0,0,0,0.6)',
 })`
   flex: 1;
-  font-size: 15px;
-  margin-left: 5px;
+  font-size: 30px;
   color: #000;
+  border-width: 0;
 `;

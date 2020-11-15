@@ -5,7 +5,10 @@ import {
   createBottomTabNavigator,
   createMaterialTopTabNavigator,
 } from 'react-navigation-tabs';
-import { createStackNavigator } from 'react-navigation-stack';
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from 'react-navigation-stack';
 
 import Back from './components/Back';
 import Home from './pages/Home';
@@ -22,6 +25,7 @@ import PetShopAlimentos from './pages/Petshop/Alimentos';
 import PetShopSaude from './pages/Petshop/Saude';
 import Finalizacao from './pages/Finalizacao';
 import Produto from './pages/Produto';
+import Continuar from './pages/Continuar';
 
 export default (signedIn = false) =>
   createAppContainer(
@@ -30,6 +34,7 @@ export default (signedIn = false) =>
         Sign: createSwitchNavigator({
           SignIn,
           SignUp,
+          Continuar,
           Finalizacao,
           Alimentos: {
             screen: createStackNavigator({

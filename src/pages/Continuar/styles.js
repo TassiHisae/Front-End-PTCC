@@ -23,7 +23,22 @@ export const Form = styled.View`
   margin-top: 50px;
 `;
 
+export const InfoText = styled.Text`
+  font-size: 16px;
+  font-weight: bold;
+`;
+
 export const FormInput = styled(Input)`
+  margin-bottom: 10px;
+`;
+
+export const ViewDoubleInput = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const FormInputSmall = styled(Input)`
+  width: 49%;
   margin-bottom: 10px;
 `;
 export const FormatButton = styled(Button)`
@@ -74,18 +89,4 @@ export const Image = styled.Image`
   margin-top: 20px;
 `;
 
-export const ViewDoubleInput = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const TextDate = styled.Text`
-  font-size: 14px;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.6);
-`;
-
-export const FormInputSmall = styled(DateInput)`
-  width: 50%;
-`;
+export const FormDateInput = styled(DateInput)``;
