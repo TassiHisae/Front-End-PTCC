@@ -26,6 +26,7 @@ import PetShopSaude from './pages/Petshop/Saude';
 import Finalizacao from './pages/Finalizacao';
 import Produto from './pages/Produto';
 import Continuar from './pages/Continuar';
+import User from './pages/Profile/User';
 
 export default (signedIn = false) =>
   createAppContainer(
@@ -35,7 +36,6 @@ export default (signedIn = false) =>
           SignIn,
           SignUp,
           Continuar,
-          Finalizacao,
           Alimentos: {
             screen: createStackNavigator({
               Alimentos: {
@@ -151,6 +151,8 @@ export default (signedIn = false) =>
         Screen: createStackNavigator(
           {
             Produto,
+            Finalizacao,
+            User,
           },
           {
             navigationOptions: {
@@ -242,6 +244,6 @@ export default (signedIn = false) =>
         ),
       },
 
-      { initialRouteName: 'Sign' }
+      { initialRouteName: 'Screen' }
     )
   );

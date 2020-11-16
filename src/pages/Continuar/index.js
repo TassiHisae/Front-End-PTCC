@@ -8,6 +8,8 @@ import {
   ViewDoubleInput,
   FormInputSmall,
   InfoText,
+  Text,
+  BoxText,
 } from './styles';
 function Continuar({ navigation }) {
   return (
@@ -16,39 +18,42 @@ function Continuar({ navigation }) {
         Falta apenas mais umas informações, estamos quase lá :)
       </InfoText>
       <Form>
+        <BoxText>
+          <Text>Atenção os campos com * são obrigatórios</Text>
+        </BoxText>
         <FormInput
           icon="location-on"
           autoCorrect={false}
           autoCapitalize="none"
-          placeholder="Endereço"
+          placeholder="Endereço*"
         />
         <ViewDoubleInput>
           <FormInputSmall
             icon="adjust"
             autoCorrect={false}
             autoCapitalize="none"
-            placeholder="CEP"
+            placeholder="CEP*"
           />
           <FormInputSmall
             icon="dialpad"
             keyboardType="email-address"
             autoCorrect={false}
             autoCapitalize="none"
-            placeholder="Número"
+            placeholder="Número*"
           />
         </ViewDoubleInput>
         <FormInput
           icon="attach-file"
           autoCorrect={false}
           autoCapitalize="none"
-          placeholder="Complemento"
+          placeholder="Complemento*"
         />
         <ViewDoubleInput>
           <FormInputSmall
             icon="phone-android"
             autoCorrect={false}
             autoCapitalize="none"
-            placeholder="Celular"
+            placeholder="Celular*"
           />
           <FormInputSmall
             icon="local-phone"

@@ -11,6 +11,8 @@ import {
   FormInputSmall,
   ViewDoubleInput,
   TextDate,
+  BoxText,
+  Text,
 } from './styles';
 
 import logo from '../../assets/logo.png';
@@ -30,34 +32,37 @@ class SignUp extends Component {
       <Container>
         <Image source={logo} />
         <Form>
+          <BoxText>
+            <Text>Atenção os campos com * são obrigatórios</Text>
+          </BoxText>
           <FormInput
             icon="person-outline"
             autoCorrect={false}
             autoCapitalize="none"
-            placeholder="Nome"
+            placeholder="Nome*"
           />
           <FormInput
             icon="person-outline"
             autoCorrect={false}
             autoCapitalize="none"
-            placeholder="CPF"
+            placeholder="CPF*"
           />
           <FormInput
             icon="mail-outline"
             keyboardType="email-address"
             autoCorrect={false}
             autoCapitalize="none"
-            placeholder="Email"
+            placeholder="Email*"
           />
           <FormInput
             icon="lock-outline"
             secureTextEntry
             autoCorrect={false}
             autoCapitalize="none"
-            placeholder="Senha"
+            placeholder="Senha*"
           />
           <ViewDoubleInput>
-            <TextDate>Data da nascimento:</TextDate>
+            <TextDate>Data da nascimento:*</TextDate>
             <FormInputSmall
               icon="date-range"
               secureTextEntry

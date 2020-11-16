@@ -20,7 +20,7 @@ export const Container = styled.KeyboardAvoidingView.attrs({
 `;
 export const Form = styled.View`
   align-self: stretch;
-  margin-top: 50px;
+  margin-top: 5px;
 `;
 
 export const InfoText = styled.Text`
@@ -87,6 +87,21 @@ export const Image = styled.Image`
   width: 72px;
   height: 85px;
   margin-top: 20px;
+  text-align: left;
 `;
 
 export const FormDateInput = styled(DateInput)``;
+
+export const BoxText = styled.View`
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 5px;
+`;
+
+export const Text = styled.Text`
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 11px;
+  text-align: left;
+`;

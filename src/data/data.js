@@ -364,3 +364,10 @@ export const remedios = [
     color: '#f76abc',
   },
 ];
+
+export const user = {
+  nome: 'Gabriella',
+  cpf: '55555555578',
+  senha: '********',
+  email: 'gabriella.cristinec@gmail.com',
+};

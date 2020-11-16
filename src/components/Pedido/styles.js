@@ -77,7 +77,7 @@ export const Name = styled.Text`
   color: #333;
 `;
 
-export const PlusInfo = styled.View`
+export const PlusInfo = styled.TouchableOpacity`
   margin-bottom: 30px;
 `;
 

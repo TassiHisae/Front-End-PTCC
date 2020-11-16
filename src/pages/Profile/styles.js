@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { BaseButton } from 'react-native-gesture-handler';
 
 export const Container = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
@@ -25,7 +24,7 @@ export const TextItem = styled.Text`
   color: rgba(0, 0, 0, 0.8);
 `;
 
-export const ListItem = styled(BaseButton)`
+export const ListItem = styled.TouchableOpacity`
   padding-left: 20px;
   padding-right: 20px;
   height: 45px;
