@@ -22,13 +22,13 @@ function Profile({ navigation }) {
           <TextItem>Perfil</TextItem>
         </Item>
       </ListItem>
-      <ListItem>
+      <ListItem onPress={() => navigation.navigate('Carteira')}>
         <Item>
           <SimpleLineIcons name="wallet" color="rgba(0,0,0,0.8)" size={28} />
           <TextItem>Carteira</TextItem>
         </Item>
       </ListItem>
-      <ListItem>
+      <ListItem onPress={() => navigation.navigate('Endereco')}>
         <Item>
           <EvilIcons name="location" color="rgba(0,0,0,0.8)" size={28} />
           <TextItem>Endereços</TextItem>

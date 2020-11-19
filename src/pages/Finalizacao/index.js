@@ -32,12 +32,14 @@ import {
   CpfText,
   Button,
   TextButton,
+  CardBall,
+  CardBackground,
 } from './styles';
 import Back from '../../components/Back';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import foto from '../../assets/produto.jpg';
 import { useState } from 'react';
-function Finalizacao() {
+function Finalizacao({ navigation }) {
   const [marked, setMarked] = useState(true);
 
   return (
@@ -45,14 +47,14 @@ function Finalizacao() {
       <SpaceOfAddress>
         <Content>
           <Box>
-            <Icon name="gps-fixed" color="#fff" size={25} />
+            <Icon name="gps-fixed" color="#000" size={25} />
           </Box>
           <ViewText>
             <Text>Rua Padre Cícero, 134</Text>
             <Address>Jd. Saint Morritz</Address>
           </ViewText>
         </Content>
-        <Touchable>
+        <Touchable onPress={() => navigation.navigate('Endereco')}>
           <Icon name="chevron-right" color="#2dc7ff" size={20} />
         </Touchable>
       </SpaceOfAddress>
@@ -83,7 +85,7 @@ function Finalizacao() {
           <Image source={foto} />
         </BoxOfOrder>
         <AddItens>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('PetShop')}>
             <TextItens>Adicionar mais itens</TextItens>
           </TouchableOpacity>
         </AddItens>
@@ -108,7 +110,10 @@ function Finalizacao() {
           <ViewSpaceBetween>
             <Content>
               <Box>
-                <Icon name="payment" color="#fff" size={25} />
+                <CardBackground>
+                  <CardBall color="rgba(236,1,1,0.9)"></CardBall>
+                  <CardBall color="rgba(255,211,29,0.9)" second></CardBall>
+                </CardBackground>
               </Box>
               <ViewText>
                 <Text>Cartão de Crédito/Débito</Text>

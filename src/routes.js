@@ -27,6 +27,9 @@ import Finalizacao from './pages/Finalizacao';
 import Produto from './pages/Produto';
 import Continuar from './pages/Continuar';
 import User from './pages/Profile/User';
+import Carteira from './pages/Profile/Carteira';
+import AddCard from './pages/AddCard';
+import Endereco from './pages/Profile/Endereco';
 
 export default (signedIn = false) =>
   createAppContainer(
@@ -150,8 +153,11 @@ export default (signedIn = false) =>
 
         Screen: createStackNavigator(
           {
-            Produto,
             Finalizacao,
+            Endereco,
+            Carteira,
+            AddCard,
+            Produto,
             User,
           },
           {

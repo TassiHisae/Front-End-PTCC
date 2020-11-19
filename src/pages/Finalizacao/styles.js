@@ -11,14 +11,13 @@ export const SpaceOfAddress = styled.View`
   height: 50px;
   border-radius: 4px;
   padding: 10px;
-  background: #ddd;
+  background: #fff;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 `;
 
 export const Box = styled.View`
-  background: #bbb;
   width: 35px;
   height: 35px;
   align-items: center;
@@ -79,6 +78,7 @@ export const SpaceOfFreight = styled.View`
   margin-top: 2px;
   border-width: 1.5px;
   border-color: #f76abc;
+  background: #fff;
 `;
 
 export const TypeOfFreight = styled.Text`
@@ -100,15 +100,15 @@ export const Value = styled.Text`
 export const SpaceOfOrder = styled.View`
   margin-top: 5px;
   width: 100%;
-  border-radius: 4px;
   padding: 10px;
+  background: #fff;
+  border-radius: 4px;
 `;
 
 export const BoxOfOrder = styled.View`
-  border-top-width: 0.5px;
-  border-top-color: rgba(0, 0, 0, 0.1);
+  border-bottom-width: 0.5px;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
   padding-left: 10px;
-  padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 10px;
   flex-direction: row;
@@ -172,7 +172,7 @@ export const TextTotal = styled.Text`
 `;
 
 export const SpaceOfPayment = styled.View`
-  background: #ddd;
+  background: #fff;
   width: 100%;
   margin-bottom: 20px;
   border-radius: 4px;
@@ -219,4 +219,22 @@ export const TextButton = styled.Text`
   color: #fff;
   font-size: 16px;
   font-weight: bold;
+`;
+
+export const CardBackground = styled.View`
+  width: 30px;
+  height: 23px;
+  background: #333;
+  border-radius: 2px;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const CardBall = styled.View`
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: ${(props) => (props.color ? props.color : 'rgba(0,0,0,0)')};
+  margin-left: ${(props) => (props.second ? '-3px' : '0')};
 `;
