@@ -1,6 +1,8 @@
-import React from 'react';
+import React,{useState,useEffect} from "react";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ListPedido from '../ListPedido';
+import data from "../../data/data1";
+
 import {
   Container,
   Content,
@@ -20,6 +22,14 @@ import {
 } from './styles';
 
 function Pedido({ item }) {
+
+  const [itens,setItens] = useState('')
+  useEffect(() => {
+    data[4](item.item.id).then((results) => {
+      return setItens(results)})
+  },
+[]
+  )
   return (
     <Container>
       <Content>
@@ -43,8 +53,8 @@ function Pedido({ item }) {
       </Content>
       <ContentList>
         <List
-          data={item.item.produtos}
-          keyExtractor={(item) => String(item.id)}
+          data={itens}
+          keyExtractor={(item) => String(item.position)}
           renderItem={(item) => <ListPedido item={item} />}
         />
       </ContentList>

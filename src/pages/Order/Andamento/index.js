@@ -1,22 +1,28 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Container, List } from "./styles";
 
 import Pedido from "../../../components/Pedido";
 
-import {andamento} from "../../../data/data";
-
+import data from "../../../data/data1";
 function Andamento() {
-  return (
+      // retorna a lista de pedidos em andamento
+    const [lista,setlista] = useState('')
+    useEffect(() => {
+      data[3]("ativo").then((results) => {
+         return setlista(results)})
+    },
+  []
+    )
+   return (
     <Container>
       <List
-        data={andamento}
+        data={lista}
         keyExtractor={(item) => String(item.id)}
         renderItem={(item) => <Pedido item={item} />}
       />
     </Container>
   );
 }
-
 Andamento.navigationOptions = {
   title: "Em Andamento",
 };

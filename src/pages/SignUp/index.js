@@ -23,6 +23,10 @@ class SignUp extends Component {
     super(props);
     this.navigation = props.navigation;
     this.state = {
+      nome:'',
+      cpf:'',
+      email:'',
+      senha:'',
       date: '20-01-2001',
     };
   }
@@ -40,12 +44,14 @@ class SignUp extends Component {
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="Nome*"
+            onChangeText={(texte_nome) => this.state.nome = texte_nome}
           />
           <FormInput
             icon="person-outline"
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="CPF*"
+            onChangeText={(texte_cpf) => this.state.cpf = texte_cpf}
           />
           <FormInput
             icon="mail-outline"
@@ -53,6 +59,7 @@ class SignUp extends Component {
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="Email*"
+            onChangeText={(texte_email) => this.state.email = texte_email}
           />
           <FormInput
             icon="lock-outline"
@@ -60,6 +67,7 @@ class SignUp extends Component {
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="Senha*"
+            onChangeText={(texte_senha) => this.state.senha = texte_senha}
           />
           <ViewDoubleInput>
             <TextDate>Data da nascimento:*</TextDate>
@@ -98,7 +106,7 @@ class SignUp extends Component {
             <SignLinkText>Já possui uma conta? Clique aqui...</SignLinkText>
           </SignLink>
         </Form>
-        <SubmitButton onPress={() => this.navigation.navigate('Continuar')}>
+        <SubmitButton onPress={() => this.navigation.navigate('Continuar',{routes:this.state})}>
           Cadastrar
         </SubmitButton>
       </Container>

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAnt from 'react-native-vector-icons/AntDesign';
-import Background from '../../components/Background';
+import {Alert } from "react-native";
+import Background from '../../components/Background/index';
+import Verificar from '../../Services/Verifica_login'
 
 import {
   Container,
@@ -20,53 +22,88 @@ import {
 import imgGoogle from '../../assets/google.png';
 import logo from '../../assets/logo.png';
 
+
+// Classe de Login, validada na Class de Valida Login
 function SignIn({ navigation }) {
+
+  const [email , setEmail] = useState('');
+  const [pass  , setPass ] = useState('');
+
+  async function Login(){
+// Verifica se o Usuario deixou algum campo em branco
+if(email !== "" &&  pass !== ""){
+
+    await Verificar(email,pass).then(results=>{
+          // Verfica se o valor passado existe
+        if(results.validacao){
+
+          navigation.navigate("Home",results.User)
+
+        }else if(results == false){
+
+          console.log("Não foi possivel efetuar login")
+          Alert.alert(
+            "Tente Novamente",
+            "Login ou senha incorreto")
+
+        }else if(results == null){
+          Alert.alert(
+            "Erro")
+         console.log("Erro Critico!")
+        }
+   })
+}
+else{
+  Alert.alert(
+  "Tente Novamente",
+  "Por favor preencher todos os campos")}
+  }
   return (
-    <Background>
-      <Container>
-        <Image source={logo} />
-        <Form>
-          <FormInput
-            icon="mail-outline"
-            keyboardType="email-address"
-            autoCorrect={false}
-            autoCapitalize="none"
-            placeholder="Email"
-          />
 
-          <FormInput
-            icon="lock-outline"
-            secureTextEntry
-            autoCorrect={false}
-            autoCapitalize="none"
-            placeholder="Senha"
-          />
-          <SignLink onPress={() => navigation.navigate('SignUp')}>
-            <SignLinkText>Crie sua conta gratuita</SignLinkText>
-          </SignLink>
+    <Container>
+      <Image source={logo} />
+      <Form>
+        <FormInput
+          icon="mail-outline"
+          keyboardType="email-address"
+          autoCorrect={false}
+          autoCapitalize="none"
+          placeholder="Email"
+          value={email}
+          onChangeText={(texte_email) => setEmail(texte_email)}
+        />
 
-          <SocialText>Login por rede social</SocialText>
-          <SocialMediaIcon>
-            <BaseIcon>
-              <ImageIcon source={imgGoogle} />
-            </BaseIcon>
-            <BaseIcon>
-              <IconAnt name="github" size={45} color="#000" />
-            </BaseIcon>
-            <BaseIcon>
-              <Icon name="facebook" size={45} color="#4267B2" />
-            </BaseIcon>
-          </SocialMediaIcon>
-        </Form>
+        <FormInput
+          icon="lock-outline"
+          secureTextEntry
+          autoCorrect={false}
+          autoCapitalize="none"
+          placeholder="Senha"
+          value={pass}
+          onChangeText={(texte_pass) => setPass(texte_pass)}
+        />
+        <SignLink onPress={() => navigation.navigate("SignUp")}>
+          <SignLinkText>Crie sua conta gratuita</SignLinkText>
+        </SignLink>
 
-        <SubmitButton
-          color="#2dc7ff"
-          onPress={() => navigation.navigate('Home')}
-        >
-          Acessar
-        </SubmitButton>
-      </Container>
-    </Background>
+        <SocialText>Login por rede social</SocialText>
+        <SocialMediaIcon>
+          <BaseIcon>
+            <ImageIcon source={imgGoogle} />
+          </BaseIcon>
+          <BaseIcon>
+            <IconAnt name="github" size={45} color="#000" />
+          </BaseIcon>
+          <BaseIcon>
+            <Icon name="facebook" size={45} color="#4267B2" />
+          </BaseIcon>
+        </SocialMediaIcon>
+      </Form>
+
+      <SubmitButton color="#2dc7ff" onPress={Login}>
+        Acessar
+      </SubmitButton>
+    </Container>
   );
 }
 

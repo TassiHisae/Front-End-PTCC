@@ -232,7 +232,7 @@ export default (signedIn = false) =>
                 }
               ),
             },
-            Settings,
+            Settings
           },
           {
             tabBarOptions: {
@@ -250,6 +250,6 @@ export default (signedIn = false) =>
         ),
       },
 
-      { initialRouteName: 'Screen' }
+      { initialRouteName: 'Sign' }
     )
   );

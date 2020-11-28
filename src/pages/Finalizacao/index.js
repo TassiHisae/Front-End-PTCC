@@ -77,13 +77,8 @@ function Finalizacao({ navigation }) {
           </ViewText>
           <Image source={foto} />
         </BoxOfOrder>
-        <BoxOfOrder>
-          <ViewText>
-            <TextProd>Ração Golden Carne e Arroz</TextProd>
-            <ValueOfProd>R$ 119,90</ValueOfProd>
-          </ViewText>
-          <Image source={foto} />
-        </BoxOfOrder>
+
+
         <AddItens>
           <TouchableOpacity onPress={() => navigation.navigate('PetShop')}>
             <TextItens>Adicionar mais itens</TextItens>
@@ -149,8 +144,8 @@ function Finalizacao({ navigation }) {
           </ViewSpaceBetween>
         </Cpf>
       </SpaceOfPayment>
-      <Button>
-        <TextButton>Finalizar</TextButton>
+      <Button onPress={() => navigation.navigate('Home')}>
+        <TextButton >Finalizar</TextButton>
       </Button>
     </Container>
   );
@@ -165,7 +160,7 @@ Finalizacao.navigationOptions = ({ navigation }) => ({
     shadowOffset: { height: 0, width: 0 },
   },
   headerLeft: () => (
-    <Back onPress={() => navigation.navigate('Produto')} color="#f76abc" />
+    <Back onPress={() => navigation.navigate('Home')} color="#f76abc" />
   ),
 });
 

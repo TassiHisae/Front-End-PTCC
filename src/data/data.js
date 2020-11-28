@@ -366,8 +366,8 @@ export const remedios = [
 ];
 
 export const user = {
-  nome: 'Gabriella',
-  cpf: '55555555578',
-  senha: '********',
-  email: 'gabriella.cristinec@gmail.com',
+  nome: 'jonathan',
+  cpf: '47515373858',
+  senha: '123',
+  email: 'jonathan@teste.com',
 };
