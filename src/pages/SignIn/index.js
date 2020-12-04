@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAnt from 'react-native-vector-icons/AntDesign';
-import {Alert } from "react-native";
+import { Alert } from 'react-native';
 import Background from '../../components/Background/index';
-import Verificar from '../../Services/Verifica_login'
+import Verificar from '../../Services/Verifica_login';
 
 import {
   Container,
@@ -21,45 +21,34 @@ import {
 
 import imgGoogle from '../../assets/google.png';
 import logo from '../../assets/logo.png';
-
+import { signInRequest } from '../../store/modules/auth/actions';
 
 // Classe de Login, validada na Class de Valida Login
 function SignIn({ navigation }) {
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
 
-  const [email , setEmail] = useState('');
-  const [pass  , setPass ] = useState('');
-
-  async function Login(){
-// Verifica se o Usuario deixou algum campo em branco
-if(email !== "" &&  pass !== ""){
-
-    await Verificar(email,pass).then(results=>{
-          // Verfica se o valor passado existe
-        if(results.validacao){
-
-          navigation.navigate("Home",results.User)
-
-        }else if(results == false){
-
-          console.log("Não foi possivel efetuar login")
-          Alert.alert(
-            "Tente Novamente",
-            "Login ou senha incorreto")
-
-        }else if(results == null){
-          Alert.alert(
-            "Erro")
-         console.log("Erro Critico!")
+  async function Login() {
+    // Verifica se o Usuario deixou algum campo em branco
+    if (email !== '' && pass !== '') {
+      await Verificar(email, pass).then((results) => {
+        // Verfica se o valor passado existe
+        if (results.validacao) {
+          navigation.navigate('Home');
+          signInRequest(results.User);
+        } else if (results == false) {
+          console.log('Não foi possivel efetuar login');
+          Alert.alert('Tente Novamente', 'Login ou senha incorreto');
+        } else if (results == null) {
+          Alert.alert('Erro');
+          console.log('Erro Critico!');
         }
-   })
-}
-else{
-  Alert.alert(
-  "Tente Novamente",
-  "Por favor preencher todos os campos")}
+      });
+    } else {
+      Alert.alert('Tente Novamente', 'Por favor preencher todos os campos');
+    }
   }
   return (
-
     <Container>
       <Image source={logo} />
       <Form>
@@ -82,7 +71,7 @@ else{
           value={pass}
           onChangeText={(texte_pass) => setPass(texte_pass)}
         />
-        <SignLink onPress={() => navigation.navigate("SignUp")}>
+        <SignLink onPress={() => navigation.navigate('SignUp')}>
           <SignLinkText>Crie sua conta gratuita</SignLinkText>
         </SignLink>
 
