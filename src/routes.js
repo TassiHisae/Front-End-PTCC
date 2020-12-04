@@ -230,7 +230,7 @@ export default (signedIn = false) =>
                 }
               ),
             },
-            Settings,
+            Settings
           },
           {
             tabBarOptions: {

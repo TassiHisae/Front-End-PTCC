@@ -1,21 +1,28 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Carrossel from "./Carrossel";
 import Produtos from "../../components/Produtos";
 import carrosselImage from "../../assets/imgCarrossel.jpg";
 import Avaliado from "./Avaliado";
-
 import { Container, List } from "./styles";
 
-import data from "../../data/data";
-
+import data from "../../data/data1";
 function Home({ navigation }) {
+
+    // Pega os Valores das Lojas Avalidas
+  const [lista,setlista] = useState('')
+  useEffect(() => {
+    data[0]().then((results) => {
+    return setlista(results)})
+  },[])
+
+
   return (
     <Container>
       <Produtos onPress={() => navigation.navigate("Alimentos")} />
       <Carrossel image={carrosselImage} />
       <List
-        data={data}
+        data={lista}
         keyExtractor={(item) => String(item.id)}
         renderItem={(item) => (
           <Avaliado
@@ -33,6 +40,7 @@ Home.navigationOptions = {
   tabBarIcon: ({ tintColor }) => (
     <Icon name="home-outline" size={30} color={tintColor} />
   ),
+
 };
 
 export default Home;

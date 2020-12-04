@@ -2,6 +2,8 @@ import React from 'react';
 import Back from '../../../components/Back';
 import logo from '../../../assets/logo.jpg';
 import { user } from '../../../data/data';
+
+
 import {
   Container,
   Content,
@@ -13,6 +15,8 @@ import {
 } from './styles';
 
 function User() {
+
+
   return (
     <Container>
       <Content>

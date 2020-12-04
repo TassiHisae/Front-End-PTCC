@@ -6,7 +6,7 @@ function ListPedido({ item }) {
   return (
     <Container>
       <BoxNumber>
-        <Number>{item.item.id}</Number>
+        <Number>{item.item.position}</Number>
       </BoxNumber>
       <Product>{item.item.nome}</Product>
     </Container>
