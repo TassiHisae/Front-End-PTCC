@@ -1,8 +1,9 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import "react-native-gesture-handler";
+import React from 'react';
 
-import App from './App'
+import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
+import './config/ReactotronConfig';
+import App from './App';
 
 export default function Index() {
   return (

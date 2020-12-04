@@ -216,9 +216,7 @@ export default (signedIn = false) =>
                             backgroundColor: '#f76abc',
                           },
                         },
-                        style: {
-                          backgroundColor: '#FFF',
-                        },
+                        style: {},
                       }
                     ),
                   },
@@ -250,6 +248,6 @@ export default (signedIn = false) =>
         ),
       },
 
-      { initialRouteName: 'Screen' }
+      { initialRouteName: signedIn ? 'App' : 'Sign' }
     )
   );

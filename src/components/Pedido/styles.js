@@ -17,7 +17,7 @@ export const TextButton = styled.Text`
 `;
 
 export const Container = styled.View`
-  background: #f5f5f5;
+  background: #fff;
   margin-bottom: 15px;
   border-radius: 4px;
   padding: 20px;
