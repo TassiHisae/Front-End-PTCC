@@ -230,7 +230,7 @@ export default (signedIn = false) =>
                 }
               ),
             },
-            Settings
+            Settings,
           },
           {
             tabBarOptions: {
@@ -248,6 +248,6 @@ export default (signedIn = false) =>
         ),
       },
 
-      { initialRouteName: signedIn ? 'App' : 'Sign' }
+      { initialRouteName: 'Sign' }
     )
   );
