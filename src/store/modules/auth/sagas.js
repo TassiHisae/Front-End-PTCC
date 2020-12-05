@@ -4,12 +4,7 @@ import { signInSuccess, signFailure } from './actions';
 
 export function* signIn({ payload }) {
   try {
-    const { email, password } = payload;
-
-    const user = {
-      email,
-      password,
-    };
+    const { user } = payload;
 
     yield put(signInSuccess(user));
   } catch (err) {
@@ -19,14 +14,7 @@ export function* signIn({ payload }) {
 
 export function* SignUp({ payload }) {
   try {
-    const { nome, email, senha, cpf } = payload;
-
-    const user = {
-      nome,
-      email,
-      senha,
-      cpf,
-    };
+    const { user } = payload;
 
     yield put(signInSuccess(user));
   } catch (err) {
