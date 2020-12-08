@@ -34,8 +34,8 @@ function SignIn({ navigation }) {
       await Verificar(email, pass).then((results) => {
         // Verfica se o valor passado existe
         if (results.validacao) {
-          navigation.navigate('Home');
           signInRequest(results.User);
+          navigation.navigate('Home');
         } else if (results == false) {
           console.log('Não foi possivel efetuar login');
           Alert.alert('Tente Novamente', 'Login ou senha incorreto');

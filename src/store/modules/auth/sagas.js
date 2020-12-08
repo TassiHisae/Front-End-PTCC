@@ -3,23 +3,15 @@ import { all, takeLatest, put } from 'redux-saga/effects';
 import { signInSuccess, signFailure } from './actions';
 
 export function* signIn({ payload }) {
-  try {
-    const { user } = payload;
+  const { user } = payload;
 
-    yield put(signInSuccess(user));
-  } catch (err) {
-    yield put(signFailure());
-  }
+  yield put(signInSuccess(user));
 }
 
 export function* SignUp({ payload }) {
-  try {
-    const { user } = payload;
+  const { user } = payload;
 
-    yield put(signInSuccess(user));
-  } catch (err) {
-    yield put(signFailure());
-  }
+  yield put(signInSuccess(user));
 }
 
 export default all([

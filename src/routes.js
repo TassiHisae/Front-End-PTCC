@@ -248,6 +248,6 @@ export default (signedIn = false) =>
         ),
       },
 
-      { initialRouteName: 'Sign' }
+      { initialRouteName: 'App' }
     )
   );

@@ -371,3 +371,87 @@ export const user = {
   senha: '123',
   email: 'jonathan@teste.com',
 };
+
+export const especieData = [
+  {
+    label: 'Escolha sua espécie',
+    value: '',
+  },
+  {
+    label: 'Gato',
+    value: 'gato',
+  },
+  {
+    label: 'Cachorro',
+    value: 'cachorro',
+  },
+];
+export const racaData = [
+  {
+    label: 'Escolha sua raça',
+    value: '',
+  },
+  {
+    label: 'Siamês',
+    value: 'Siamês',
+  },
+  {
+    label: 'Chinês',
+    value: 'Chinês',
+  },
+];
+export const categoriaData = [
+  {
+    label: 'Escolha uma categoria',
+    value: '',
+  },
+  {
+    label: 'Acessórios',
+    value: 'acessorios',
+  },
+  {
+    label: 'Alimento',
+    value: 'alimento',
+  },
+  {
+    label: 'Saúde',
+    value: 'saude',
+  },
+];
+
+export const produtoData = [
+  {
+    label: 'Escolha um produto',
+    value: '',
+  },
+  {
+    label: 'Ração',
+    value: 'racao',
+  },
+  {
+    label: 'Petisco',
+    value: 'petisco',
+  },
+  {
+    label: 'Sobremesa',
+    value: 'sobremesa',
+  },
+];
+export const lojaData = [
+  {
+    label: 'Escolha uma loja',
+    value: '',
+  },
+  {
+    label: 'Bigodinho Pets',
+    value: 'bigodinho',
+  },
+  {
+    label: 'Alahur Pets',
+    value: 'alahur',
+  },
+  {
+    label: 'Akbar Pets',
+    value: 'Akbar',
+  },
+];
