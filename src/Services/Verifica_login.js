@@ -13,7 +13,7 @@ export default async function Verifica_Login(email,pass){
       if(results.data[0].email == email){
 
 
-        return {"validacao":true,"User":results.data};
+        return {"validacao":true,"user":results.data};
       }
 
        return null;

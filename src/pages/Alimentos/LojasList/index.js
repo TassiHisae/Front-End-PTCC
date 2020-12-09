@@ -1,7 +1,8 @@
-import React from "react";
+import React,{useContext} from "react";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { MaterialCommunityIcons } from "react-native-vector-icons";
-
+import { TouchableHighlight } from "react-native";
+import LojaContext from '../../../data/Loja/Context'
 import {
   Container,
   Left,
@@ -15,8 +16,18 @@ import {
   ValorFrete,
 } from "./styles";
 
-function Avaliado({ item }) {
+function Avaliado({ item,navigation }) {
+  const {GetId} = useContext(LojaContext)
+
+function setId(){
+
+  GetId(item.item.id)
+
+  navigation.navigate("PetShopAcessorios",item)
+}
+
   return (
+    <TouchableHighlight onPress={ setId }>
     <Container>
       <Left>
         <SymbleEnterprise
@@ -52,6 +63,7 @@ function Avaliado({ item }) {
         <Icon name="star-half" size={12} color="#ffd700" />
       </Right>
     </Container>
+    </TouchableHighlight>
   );
 }
 

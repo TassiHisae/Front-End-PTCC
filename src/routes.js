@@ -96,7 +96,7 @@ export default (signedIn = false) =>
           },
           PetShop: {
             screen: createStackNavigator({
-              PetShop: {
+              Loja: {
                 screen: createMaterialTopTabNavigator(
                   {
                     PetShopAcessorios,
@@ -105,6 +105,7 @@ export default (signedIn = false) =>
                   },
                   {
                     navigationOptions: ({ navigation }) => ({
+                      title:"Loja",
                       headerTitleAlign: 'center',
                       headerTitleStyle: {
                         color: '#333',
@@ -112,7 +113,7 @@ export default (signedIn = false) =>
                       },
                       headerLeft: () => (
                         <Back
-                          onPress={() => navigation.navigate('Home')}
+                          onPress={() => navigation.navigate('Alimentos')}
                           color="#2dc7ff"
                         />
                       ),

@@ -8,19 +8,20 @@ function Lojas({ navigation }) {
   const [lista,setlista] = useState('')
   useEffect(() => {
     data[1]().then((results) => {
-      console.log(results)
+
       return setlista(results)})
   },
 []  )
-  console.log(lista)
+
+
   return (
-    <Container>
+
       <List
         data={lista}
         keyExtractor={(item) => String(item.id)}
-        renderItem={(item) => <LojasList item={item} />}
+        renderItem={(item) => <LojasList item={item} navigation={navigation} />}
       />
-    </Container>
+
   );
 }
 

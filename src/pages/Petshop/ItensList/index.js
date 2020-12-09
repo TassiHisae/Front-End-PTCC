@@ -16,8 +16,10 @@ import {
 } from './styles';
 
 function Avaliado({ item, ...rest }) {
+console.log(item.item)
   return (
-    <Container {...rest}>
+    <Container {...rest} >
+
       <Left>
         <SymbleEnterprise
           color={item.item.color}
@@ -26,10 +28,10 @@ function Avaliado({ item, ...rest }) {
           }}
         />
         <Info>
-          <Name>{item.item.name}</Name>
+          <Name>{item.item.nome}</Name>
           <Adicionais>
             <RamoAtuacao>
-              <TempoDeEntrega>{item.item.categoria + ' '}</TempoDeEntrega>
+              <TempoDeEntrega>{item.item.nome_categoria + ' '}</TempoDeEntrega>
               <MaterialCommunityIcons
                 name="circle"
                 size={5}
@@ -38,7 +40,7 @@ function Avaliado({ item, ...rest }) {
                   marginTop: 3,
                 }}
               />
-              <TempoDeEntrega>{' ' + item.item.porte}</TempoDeEntrega>
+              <TempoDeEntrega>{' ' + item.item.nome_raca}</TempoDeEntrega>
             </RamoAtuacao>
             <ValorFrete>Preço: {' ' + item.item.valor}</ValorFrete>
           </Adicionais>

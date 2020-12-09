@@ -48,7 +48,7 @@ export const ContentButton = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 export const Left = styled.View`
@@ -69,12 +69,14 @@ export const SymbleEnterprise = styled.Image`
 
 export const Info = styled.View`
   margin-left: 15px;
+  flex-wrap: wrap ;
 `;
 
 export const Name = styled.Text`
   font-weight: bold;
   font-size: 14px;
   color: #333;
+
 `;
 
 export const PlusInfo = styled.TouchableOpacity`

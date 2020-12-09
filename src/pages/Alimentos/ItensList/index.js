@@ -1,7 +1,7 @@
 import React from "react";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { MaterialCommunityIcons } from "react-native-vector-icons";
-
+import { TouchableHighlight } from "react-native";
 import {
   Container,
   Left,
@@ -17,6 +17,7 @@ import {
 
 function Avaliado({ item }) {
   return (
+    <TouchableHighlight onPress={() => navigation.navigate("Screen")}>
     <Container>
       <Left>
         <SymbleEnterprise
@@ -27,7 +28,7 @@ function Avaliado({ item }) {
         />
         <Info>
           <Name>{item.item.name}</Name>
-          <Adicionais> 
+          <Adicionais>
             <RamoAtuacao>
               <TempoDeEntrega>{item.item.categoria + " "}</TempoDeEntrega>
               <MaterialCommunityIcons
@@ -52,6 +53,7 @@ function Avaliado({ item }) {
         <Icon name="star-half" size={12} color="#ffd700" />
       </Right>
     </Container>
+    </TouchableHighlight>
   );
 }
 

@@ -23,6 +23,10 @@ import {
 
 function Pedido({ item }) {
 
+    function VericaCancel(){
+          Axios
+    }
+
   const [itens,setItens] = useState('')
   useEffect(() => {
     data[4](item.item.id).then((results) => {
@@ -71,12 +75,10 @@ function Pedido({ item }) {
         </Right>
       </Content>
       <ContentButton>
-        <Button color="#f5f5f5" txtColor="#2dc7ff">
-          <TextButton>Ajuda</TextButton>
+        <Button color="#f5f5f5" txtColor="#2dc7ff" OnPress={VericaCancel}>
+          <TextButton>Cancelar Pedido</TextButton>
         </Button>
-        <Button color="#f5f5f5" txtColor="#2dc7ff">
-          <TextButton>Detalhes</TextButton>
-        </Button>
+
       </ContentButton>
     </Container>
   );

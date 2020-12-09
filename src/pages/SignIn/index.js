@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAnt from 'react-native-vector-icons/AntDesign';
 import { Alert } from 'react-native';
 import Background from '../../components/Background/index';
 import Verificar from '../../Services/Verifica_login';
+
 
 import {
   Container,
@@ -21,33 +22,28 @@ import {
 
 import imgGoogle from '../../assets/google.png';
 import logo from '../../assets/logo.png';
-import { signInRequest } from '../../store/modules/auth/actions';
+import AuthContext from '../../auth/auth'
 
 // Classe de Login, validada na Class de Valida Login
 function SignIn({ navigation }) {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
-
+  const {signed,signIn} = useContext(AuthContext)
   async function Login() {
+
     // Verifica se o Usuario deixou algum campo em branco
     if (email !== '' && pass !== '') {
-      await Verificar(email, pass).then((results) => {
-        // Verfica se o valor passado existe
-        if (results.validacao) {
-          navigation.navigate('Home');
-          signInRequest(results.User);
-        } else if (results == false) {
-          console.log('Não foi possivel efetuar login');
-          Alert.alert('Tente Novamente', 'Login ou senha incorreto');
-        } else if (results == null) {
-          Alert.alert('Erro');
-          console.log('Erro Critico!');
+
+        signIn(email,pass)
+
+
+
+        if(signed.user[0].email == email && signed.user[0].senha == pass){
+          navigation.navigate('Home')
         }
-      });
-    } else {
-      Alert.alert('Tente Novamente', 'Por favor preencher todos os campos');
     }
   }
+
   return (
     <Container>
       <Image source={logo} />

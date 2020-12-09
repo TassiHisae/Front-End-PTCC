@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react';
+
 import { useSelector } from 'react-redux';
+
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import Carrossel from './Carrossel';
+
 import Produtos from '../../components/Produtos';
+
 import carrosselImage from '../../assets/imgCarrossel.jpg';
+
 import Avaliado from './Avaliado';
+
 import { Container, List } from './styles';
 
 import data from '../../data/data1';
 function Home({ navigation }) {
-  const profile = useSelector((state) => state.user.profile);
+
   // Pega os Valores das Lojas Avalidas
   const [lista, setlista] = useState('');
   useEffect(() => {

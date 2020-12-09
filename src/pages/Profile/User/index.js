@@ -1,8 +1,8 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import Back from '../../../components/Back';
 import logo from '../../../assets/logo.jpg';
 import { user } from '../../../data/data';
-
+import AuthContext from '../../../auth/auth'
 
 import {
   Container,
@@ -15,7 +15,8 @@ import {
 } from './styles';
 
 function User() {
-
+  const {signed,signIn} = useContext(AuthContext)
+  console.log(signed.user[0].nome);
 
   return (
     <Container>
@@ -28,27 +29,27 @@ function User() {
           icon="person-outline"
           autoCorrect={false}
           autoCapitalize="none"
-          placeholder={user.nome}
+          placeholder={signed.user[0].nome}
         />
         <FormInput
           icon="person-outline"
           autoCorrect={false}
           autoCapitalize="none"
-          placeholder={user.cpf}
+          placeholder={signed.user[0].cpf}
         />
         <FormInput
           icon="mail-outline"
           keyboardType="email-address"
           autoCorrect={false}
           autoCapitalize="none"
-          placeholder={user.email}
+          placeholder={signed.user[0].email}
         />
         <FormInput
           icon="lock-outline"
           secureTextEntry
           autoCorrect={false}
           autoCapitalize="none"
-          placeholder={user.senha}
+          placeholder={signed.user[0].senha}
         />
         <Button>
           <Text>Atualizar</Text>

@@ -1,18 +1,32 @@
-import React from 'react';
+import React,{useContext,useState,useEffect} from 'react';
 
 import ItensList from '../ItensList';
 import { Container, List } from './styles';
-import { acessorios } from '../../../data/data';
+import  data  from '../../../data/data1';
+import LojaContext from '../../../data/Loja/Context'
 
-function Acessorios({ navigation }) {
+
+function Acessorios( { navigation }) {
+
+  const {IdLoja} = useContext(LojaContext)
+
+  const [lista,setlista] = useState('')
+  useEffect(() => {
+    data[7](IdLoja).then((results) => {
+
+      return setlista(results)})
+  },
+[]  )
+
+
   return (
     <Container>
       <List
-        data={acessorios}
+        data={lista}
         keyExtractor={(item) => String(item.id)}
         renderItem={(item) => (
           <ItensList
-            onPress={() => navigation.navigate('Produto')}
+            onPress={() => navigation.navigate('Produto'),item}
             item={item}
           />
         )}
