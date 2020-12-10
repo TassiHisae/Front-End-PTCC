@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAnt from 'react-native-vector-icons/AntDesign';
 import { Alert } from 'react-native';
@@ -28,19 +28,19 @@ import AuthContext from '../../auth/auth'
 function SignIn({ navigation }) {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
-  const {signed,signIn} = useContext(AuthContext)
+  const { signed, signIn } = useContext(AuthContext)
   async function Login() {
 
     // Verifica se o Usuario deixou algum campo em branco
     if (email !== '' && pass !== '') {
 
-        signIn(email,pass)
+      signIn(email, pass)
 
 
 
-        if(signed.user[0].email == email && signed.user[0].senha == pass){
-          navigation.navigate('Home')
-        }
+      if (signed.user[0].email == email && signed.user[0].senha == pass) {
+        navigation.navigate('Home')
+      }
     }
   }
 
