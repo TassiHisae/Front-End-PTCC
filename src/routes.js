@@ -55,12 +55,6 @@ export default (signedIn = false) =>
                         color: '#333',
                         fontSize: 17,
                       },
-                      headerLeft: () => (
-                        <Back
-                          onPress={() => navigation.navigate('Home')}
-                          color="#2dc7ff"
-                        />
-                      ),
                       headerStyle: {
                         elevation: 0,
                         shadowOpacity: 0,
@@ -105,7 +99,7 @@ export default (signedIn = false) =>
                   },
                   {
                     navigationOptions: ({ navigation }) => ({
-                      title:"Loja",
+                      title: navigation.state.params.nome,
                       headerTitleAlign: 'center',
                       headerTitleStyle: {
                         color: '#333',
@@ -113,7 +107,7 @@ export default (signedIn = false) =>
                       },
                       headerLeft: () => (
                         <Back
-                          onPress={() => navigation.navigate('Alimentos')}
+                          onPress={() => navigation.navigate('Home')}
                           color="#2dc7ff"
                         />
                       ),
@@ -249,6 +243,6 @@ export default (signedIn = false) =>
         ),
       },
 
-      { initialRouteName: 'Sign' }
+      { initialRouteName: 'App' }
     )
   );
