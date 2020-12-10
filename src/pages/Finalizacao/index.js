@@ -1,5 +1,10 @@
-import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import React,{useContext} from 'react';
+import { TouchableOpacity} from 'react-native';
+import CompraContext from '../../data/Loja/DataCarrinho'
+import ListPedido from "../../components/ListCompras/ItemCompra";
+import {List} from './styles'
+import Lista from '../Alimentos/ItensList'
+import { moedaMask } from '../../Mascara/mask';
 import {
   Container,
   SpaceOfAddress,
@@ -34,15 +39,48 @@ import {
   TextButton,
   CardBall,
   CardBackground,
-} from './styles';
+}
+
+from './styles';
 import Back from '../../components/Back';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import foto from '../../assets/produto.jpg';
-import { useState } from 'react';
-function Finalizacao({ navigation }) {
-  const [marked, setMarked] = useState(true);
 
-  return (
+import { useState } from 'react';
+
+
+function Finalizacao({ navigation }) {
+
+  const [marked, setMarked] = useState(false);
+  const [marked1, setMarked1] = useState(false);
+  const [marked2, setMarked2] = useState(false);
+  const [marked3, setMarked3] = useState(false);
+  const {ItensCompra} = useContext(CompraContext);
+
+  const {total,frete} = useContext(CompraContext);
+
+  console.log(frete)
+
+  function verifica1(){
+    setMarked1(true)
+    setMarked2(false)
+    setMarked3(false)
+  }
+
+  function verifica2(){
+    setMarked1(false)
+    setMarked2(true)
+    setMarked3(false)
+
+  }
+
+  function verifica3(){
+    setMarked1(false)
+    setMarked2(false)
+    setMarked3(true)
+
+  }
+ return (
     <Container>
       <SpaceOfAddress>
         <Content>
@@ -64,21 +102,19 @@ function Finalizacao({ navigation }) {
           <ViewText>
             <TypeOfFreight>Padrão</TypeOfFreight>
             <Time>Hoje, 76 - 95 min</Time>
-            <Value>R$ 9,00</Value>
+            <Value>R${}</Value>
           </ViewText>
         </Content>
       </SpaceOfFreight>
       <TextTime>Bigodinho Pets</TextTime>
       <SpaceOfOrder>
-        <BoxOfOrder>
-          <ViewText>
-            <TextProd>Ração Golden Carne e Arroz</TextProd>
-            <ValueOfProd>R$ 119,90</ValueOfProd>
-          </ViewText>
-          <Image source={foto} />
-        </BoxOfOrder>
-
-
+      <Container>
+       <List
+        data={ItensCompra}
+        keyExtractor={(item) => item.id}
+        renderItem={(item) => <ListPedido item={item} />}
+      />
+       </Container>
         <AddItens>
           <TouchableOpacity onPress={() => navigation.navigate('PetShop')}>
             <TextItens>Adicionar mais itens</TextItens>
@@ -87,15 +123,15 @@ function Finalizacao({ navigation }) {
         <ViewText>
           <ViewSpaceBetween>
             <TextSubTotal>Subtotal</TextSubTotal>
-            <TextSubTotal>R$ 239,80</TextSubTotal>
+            <TextSubTotal>R$ {moedaMask("'" + total + "'")}</TextSubTotal>
           </ViewSpaceBetween>
           <ViewSpaceBetween>
             <TextSubTotal>Frete</TextSubTotal>
-            <TextSubTotal>R$ 9,00</TextSubTotal>
+                <TextSubTotal>R$ {moedaMask("'" + frete + "'")}</TextSubTotal>
           </ViewSpaceBetween>
           <ViewSpaceBetween>
             <TextTotal>Total</TextTotal>
-            <TextTotal>R$ 248,80</TextTotal>
+            <TextTotal>R$ {moedaMask("'" + (frete + total) + "'")}</TextTotal>
           </ViewSpaceBetween>
         </ViewText>
       </SpaceOfOrder>
@@ -112,7 +148,7 @@ function Finalizacao({ navigation }) {
               </Box>
               <ViewText>
                 <Text>Cartão de Crédito/Débito</Text>
-                <Address>Visa - **** 2080</Address>
+                <Address>selecione o tipo de pagamento</Address>
               </ViewText>
             </Content>
             <Touchable>
@@ -124,25 +160,26 @@ function Finalizacao({ navigation }) {
           <ViewText>
             <ViewSpaceBetween>
               <TextOption>Crédito</TextOption>
-              <Marked isMarked={marked} onPress={() => setMarked(!marked)} />
+              <Marked isMarked={marked1} onPress={verifica1} />
             </ViewSpaceBetween>
             <ViewSpaceBetween>
               <TextOption>Débito</TextOption>
-              <Marked isMarked={!marked} onPress={() => setMarked(!marked)} />
+              <Marked isMarked={marked2} onPress={verifica2} />
+            </ViewSpaceBetween>
+            <ViewSpaceBetween>
+              <TextOption>Dinheiro</TextOption>
+              <Marked isMarked={marked3} onPress={verifica3} />
             </ViewSpaceBetween>
           </ViewText>
         </OptionWallet>
         <Cpf>
           <ViewSpaceBetween>
-            <ViewText>
-              <Text>CPF/CNPJ na nota</Text>
-              <CpfText>55555555578</CpfText>
-            </ViewText>
             <Touchable>
               <Icon name="chevron-right" color="#2dc7ff" size={20} />
             </Touchable>
           </ViewSpaceBetween>
         </Cpf>
+
       </SpaceOfPayment>
       <Button onPress={() => navigation.navigate('Home')}>
         <TextButton >Finalizar</TextButton>

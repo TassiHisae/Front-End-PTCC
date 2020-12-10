@@ -26,7 +26,7 @@ function Acessorios( { navigation }) {
         keyExtractor={(item) => String(item.id)}
         renderItem={(item) => (
           <ItensList
-            onPress={() => navigation.navigate('Produto'),item}
+            onPress={() => navigation.navigate('Produto',item)}
             item={item}
           />
         )}

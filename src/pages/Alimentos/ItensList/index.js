@@ -16,6 +16,7 @@ import {
 } from "./styles";
 
 function Avaliado({ item }) {
+  console.log("Estou no item lista do loja")
   return (
     <TouchableHighlight onPress={() => navigation.navigate("Screen")}>
     <Container>

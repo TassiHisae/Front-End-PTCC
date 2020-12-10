@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
+import CompraContext from '../../data/Loja/DataCarrinho'
+
 import {
   Container,
   Photo,
@@ -17,33 +19,69 @@ import Back from '../../components/Back';
 import data from '../../data/data1';
 import { moedaMask } from '../../Mascara/mask';
 
-function Produto({ navigation },item) {
-console.log(item)
+function Produto({ navigation }) {
+
+   const {item} = navigation.state.params.item;
+   const {GetObeject,ItensCompra} = useContext(CompraContext)
+   const [qtde,setQtde] = useState(1);
+
+async function carrinho(){
+
+ console.log("estou no produto")
+
+  console.log(item.frete)
+
+  var verifica = true;
+
+  ItensCompra.forEach(element => {
+
+    if(element.id == item.idproduto){
+
+      verifica = false;
+
+    }
+
+   });
+
+    if(verifica){
+
+      const Compras = await GetObeject(item.idproduto,item.nome,item.valor,item.url,qtde,item.frete)
+
+      navigation.navigate('Finalizacao',item)
+
+    }else{
+
+      alert("Produto já existe no carrinho")
+
+    }
+
+
+}
   return (
     <Container>
-      <Content>
+     <Content>
         <PhotoContainer>
-          <Photo source={{
-            uri: foto
+        <Photo source={{
+            uri: item.url
           }} resizeMode='contain' />
         </PhotoContainer>
       </Content>
       <BoxForName>
-        <Name>{produto.nome}</Name>
+        <Name>{item.nome}</Name>
       </BoxForName>
 
       <BoxForDescripition>
-        <Text>Espécie: {produtoDetalhes.nome_especie}</Text>
-        <Text>Raça: {produtoDetalhes.nome_raca}</Text>
-        <Text>Marca: {produto.marca}</Text>
-        <Text>Peso: {moedaMask("'" + produto.peso + "'")} {produto.unidade_medida}</Text>
+        <Text>Espécie: {item.nome_especie}</Text>
+        <Text>Raça: {item.nome_raca}</Text>
+        <Text>Marca: {item.marca}</Text>
+        <Text>Peso: {moedaMask("'" + item.peso + "'")} {item.unidade_medida}</Text>
         <Descripition>
-          Descrição: {produto.descricao}
+          Descrição: {item.descricao}
         </Descripition>
       </BoxForDescripition>
 
-      <Button onPress={() => navigation.navigate('Finalizacao')}>
-        <Valor>R$ {moedaMask("'" + produto.valor + "'")}</Valor>
+      <Button onPress={carrinho}>
+        <Valor>R$ {moedaMask("'" + item.valor + "'")}</Valor>
         <Icon name="plus" size={35} color="#fff" />
       </Button>
     </Container>
@@ -59,7 +97,8 @@ Produto.navigationOptions = ({ navigation }) => ({
     shadowOffset: { height: 0, width: 0 },
   },
   headerLeft: () => (
-    <Back onPress={() => navigation.navigate('Home')} color="#2dc7ff" />
+    <Back onPress={() => navigation.navigate('PetShopAlimentos')} color="#2dc7ff" />
   ),
 });
+
 export default Produto;

@@ -4,6 +4,7 @@ import React, { createContext,useState } from 'react'
 interface AuthContextData{
   IdLoja:Object;
     GetId(id): void;
+
 }
 
 const LojaContext = createContext({} as AuthContextData);

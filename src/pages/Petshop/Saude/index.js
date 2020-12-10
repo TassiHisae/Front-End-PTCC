@@ -21,7 +21,7 @@ function Saude({ navigation }) {
       <List
         data={lista}
         keyExtractor={(item) => String(item.id)}
-        renderItem={(item) => <ItensList item={item} onPress={() => navigation.navigate('Produto'),item}/>}
+        renderItem={(item) => <ItensList item={item} onPress={() => navigation.navigate('Produto',item)}/>}
       />
     </Container>
 

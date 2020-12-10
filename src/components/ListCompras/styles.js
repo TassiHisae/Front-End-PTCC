@@ -49,88 +49,90 @@ export const Touchable = styled.TouchableOpacity`
   margin-top: 14px;
 `;
 
-export const ViewText = styled.View`
-  margin-left: 10px;
-  flex-direction: column;
-  justify-content: space-between;
-`;
 
 export const Address = styled.Text`
-  color: rgba(0, 0, 0, 0.6);
+color: rgba(0, 0, 0, 0.6);
   font-size: 10px;
   margin-bottom: 10px;
-`;
+  `;
 
 export const CpfText = styled.Text`
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 11px;
-  margin-top: 3px;
+color: rgba(0, 0, 0, 0.6);
+font-size: 11px;
+margin-top: 3px;
 `;
 
 export const SpaceOfFreight = styled.View`
-  width: 100%;
-  height: 65px;
-  border-radius: 4px;
-  padding: 15px;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2px;
-  border-width: 1.5px;
-  border-color: #f76abc;
-  background: #fff;
+width: 100%;
+height: 65px;
+border-radius: 4px;
+padding: 15px;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+margin-top: 2px;
+border-width: 1.5px;
+border-color: #f76abc;
+background: #fff;
 `;
 
 export const TypeOfFreight = styled.Text`
-  color: #2dc7ff;
-  font-weight: bold;
-  font-size: 13px;
+color: #2dc7ff;
+font-weight: bold;
+font-size: 13px;
   margin-bottom: 2px;
-`;
-export const Time = styled.Text`
+  `;
+  export const Time = styled.Text`
   color: rgba(0, 0, 0, 0.6);
   font-size: 13px;
   margin-bottom: 2px;
 `;
 export const Value = styled.Text`
-  font-size: 14px;
-  font-weight: bold;
+font-size: 14px;
+font-weight: bold;
 `;
 
 export const SpaceOfOrder = styled.View`
-  margin-top: 5px;
-  width: 100%;
+margin-top: 5px;
+width: 100%;
   padding: 10px;
   background: #fff;
   border-radius: 4px;
-`;
+  `;
 
-export const BoxOfOrder = styled.View`
+  export const BoxOfOrder = styled.View`
   border-bottom-width: 0.5px;
   border-bottom-color: rgba(0, 0, 0, 0.1);
   padding-left: 10px;
-  padding-bottom: 10px;
-  margin-top: 10px;
+  align-items: center;
+  padding-top: 10px;
   flex-direction: row;
   justify-content: space-between;
-`;
+  height: 110px;
+  `;
 
-export const TextProd = styled.Text`
+  export const TextProd = styled.Text`
   margin-bottom: 10px;
   margin-left: 10px;
-`;
-export const ValueOfProd = styled.Text`
-  margin-left: 10px;
-`;
+  `;
+  export const ValueOfProd = styled.Text`
+  `;
 
-export const Image = styled.Image`
+  export const Image = styled.Image`
   width: 60px;
   height: 60px;
-  border-radius: 4px;
-  margin-right: 10px;
-`;
+  margin-bottom: 10px;
+  `;
 
-export const AddItens = styled.View`
+  export const ViewText = styled.View`
+    margin-left: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  `;
+
+  export const AddItens = styled.View`
   padding: 10px;
   width: 100%;
   flex-direction: row;
@@ -204,21 +206,47 @@ export const Cpf = styled.View`
   width: 100%;
 `;
 
-export const Button = styled(BaseButton)`
-  margin-top: 10px;
-  background: #2dc7ff;
-  width: 100%;
-  height: 46px;
-  border-radius: 4px;
+export const View = styled.View`
+  width: 30%;
+  height: 80px;
+  border-radius: 5px;
+  background: ${(props) => (props.color ? props.color : 'rgba(0,0,0,0)')};
+  margin-left: ${(props) => (props.second ? '-3px' : '0')};
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+`;
+
+export const ViewContainer = styled.View`
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Button = styled(BaseButton)`
+background: #2dc7ff;
+color: #fff;
+width: 30px;
+height: 30px;
+border-radius: 4px;
+align-items: center;
+justify-content: center;
 `;
 
 export const TextButton = styled.Text`
   color: #fff;
   font-size: 16px;
   font-weight: bold;
+  align-self: center;
+  justify-content: center;
+`;
+
+export const TextQtd = styled.Text`
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 5px;
 `;
 
 export const CardBackground = styled.View`
@@ -242,3 +270,4 @@ export const CardBall = styled.View`
 export const List = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
 })``;
+
