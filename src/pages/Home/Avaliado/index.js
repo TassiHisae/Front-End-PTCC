@@ -10,11 +10,11 @@ function Avaliado({ item, ...rest }) {
         <SymbleEnterprise
           color={item.item.color}
           source={{
-            uri: item.item.url,
+            uri: "http://192.168.15.11:3333/uploads/company/save/" + item.item.foto_perfil,
           }}
         />
         <Info>
-          <Name>{item.item.name}</Name>
+          <Name>{item.item.nome}</Name>
         </Info>
       </Left>
       <Right>

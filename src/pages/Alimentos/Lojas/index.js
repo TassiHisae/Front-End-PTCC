@@ -13,7 +13,7 @@ function Lojas({ navigation }) {
     if (Context === '1') {
       setlista(navigation.state.params.item);
     }
-    if (Context === '0') {
+    else {
       data[1]().then((results) => {
         return setlista(results)
       })
@@ -21,7 +21,7 @@ function Lojas({ navigation }) {
   },
     [])
 
-
+  console.log(lista);
   return (
     <List
       data={lista}

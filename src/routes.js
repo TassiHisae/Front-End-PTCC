@@ -113,7 +113,7 @@ export default (signedIn = false) =>
                       },
                       headerLeft: () => (
                         <Back
-                          onPress={() => navigation.navigate('Alimentos')}
+                          onPress={() => navigation.navigate('Home')}
                           color="#2dc7ff"
                         />
                       ),
@@ -249,6 +249,6 @@ export default (signedIn = false) =>
         ),
       },
 
-      { initialRouteName: 'App' }
+      { initialRouteName: 'Sign' }
     )
   );

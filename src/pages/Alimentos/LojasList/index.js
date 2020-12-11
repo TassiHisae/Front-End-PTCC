@@ -40,7 +40,7 @@ function Avaliado({ item, navigation }) {
           <Info>
             <Name>{item.item.nome}</Name>
             <Adicionais>
-              <ValorFrete>Frete: {" " + item.item.frete === '' || item.item.frete === null || item.item.frete === '0000' ? 'grátis' : item.item.frete}</ValorFrete>
+              <ValorFrete>Frete: {" " + item.item.frete === '' || item.item.frete === null || item.item.frete === '0000' || item.item.frete === '0' ? 'grátis' : item.item.frete}</ValorFrete>
             </Adicionais>
           </Info>
         </Left>

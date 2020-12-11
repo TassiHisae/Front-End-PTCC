@@ -8,6 +8,7 @@ import alimentos from "../../assets/racao.jpg";
 import saude from "../../assets/saude.jpg";
 
 function Produtos({ ...rest }) {
+  console.log(rest);
   return (
     <Container>
       <Produto {...rest} description="Alimentos" img={alimentos} />

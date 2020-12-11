@@ -1,28 +1,28 @@
- import api from "./Api";
+import api from "./Api";
 import { createStore } from 'redux'
 
-export default async function Verifica_Login(email,pass){
-   const response = await api.post('/Login',{"Email":email,"Pass":pass}).then(results => {
+export default async function Verifica_Login(email, pass) {
+  const response = await api.post('/Login', { "Email": email, "Pass": pass }).then(results => {
 
 
-      if(Object.keys(results.data)[0] == "Erro"){
+    if (Object.keys(results.data)[0] == "Erro") {
 
-            return false;
+      return false;
 
-      }
-      if(results.data[0].email == email){
-
-
-        return {"validacao":true,"user":results.data};
-      }
-
-       return null;
-
-     })
+    }
+    if (results.data[0].email == email) {
 
 
-    return response
+      return { "validacao": true, "user": results.data };
+    }
 
- }
+    return null;
+
+  })
+
+
+  return response
+
+}
 
 

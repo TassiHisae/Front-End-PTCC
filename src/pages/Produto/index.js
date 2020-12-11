@@ -17,7 +17,7 @@ import {
 } from './styles';
 import Back from '../../components/Back';
 import data from '../../data/data1';
-import { moedaMask } from '../../Mascara/mask';
+import { moedaMask, numeroMask } from '../../Mascara/mask';
 
 function Produto({ navigation }) {
   console.log(navigation);
@@ -46,7 +46,7 @@ function Produto({ navigation }) {
 
     if (verifica) {
 
-      const Compras = await GetObeject(item.idproduto, item.nome_prod, item.valor, item.url, qtde, item.frete)
+      const Compras = await GetObeject(item.idproduto, item.nome_prod, item.valor, "http://192.168.15.11:3333/uploads/product/save/" + item.foto_principal, qtde, numeroMask(item.frete))
 
       navigation.navigate('Finalizacao', item)
 
@@ -82,7 +82,7 @@ function Produto({ navigation }) {
         </Descripition>
       </BoxForDescripition>
 
-      <Button onPress={() => navigation.navigate('Finalizacao')}>
+      <Button onPress={carrinho}>
         <Valor>R$ {moedaMask("'" + item.valor + "'")}</Valor>
         <Icon name="plus" size={35} color="#fff" />
       </Button>

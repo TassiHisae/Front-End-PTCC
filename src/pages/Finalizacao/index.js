@@ -1,8 +1,8 @@
-import React,{useContext} from 'react';
-import { TouchableOpacity} from 'react-native';
+import React, { useContext } from 'react';
+import { TouchableOpacity } from 'react-native';
 import CompraContext from '../../data/Loja/DataCarrinho'
 import ListPedido from "../../components/ListCompras/ItemCompra";
-import {List} from './styles'
+import { List } from './styles'
 import Lista from '../Alimentos/ItensList'
 import { moedaMask } from '../../Mascara/mask';
 import {
@@ -41,7 +41,7 @@ import {
   CardBackground,
 }
 
-from './styles';
+  from './styles';
 import Back from '../../components/Back';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import foto from '../../assets/produto.jpg';
@@ -55,32 +55,36 @@ function Finalizacao({ navigation }) {
   const [marked1, setMarked1] = useState(false);
   const [marked2, setMarked2] = useState(false);
   const [marked3, setMarked3] = useState(false);
-  const {ItensCompra} = useContext(CompraContext);
+  const { ItensCompra } = useContext(CompraContext);
 
-  const {total,frete} = useContext(CompraContext);
+  const { total, frete } = useContext(CompraContext);
+  console.log("estou somando os dois")
 
   console.log(frete)
+  console.log(total)
 
-  function verifica1(){
+  function verifica1() {
     setMarked1(true)
     setMarked2(false)
     setMarked3(false)
   }
 
-  function verifica2(){
+  function verifica2() {
     setMarked1(false)
     setMarked2(true)
     setMarked3(false)
 
   }
 
-  function verifica3(){
+  function verifica3() {
     setMarked1(false)
     setMarked2(false)
     setMarked3(true)
 
   }
- return (
+
+  console.log(frete + total);
+  return (
     <Container>
       <SpaceOfAddress>
         <Content>
@@ -108,13 +112,13 @@ function Finalizacao({ navigation }) {
       </SpaceOfFreight>
       <TextTime>Bigodinho Pets</TextTime>
       <SpaceOfOrder>
-      <Container>
-       <List
-        data={ItensCompra}
-        keyExtractor={(item) => item.id}
-        renderItem={(item) => <ListPedido item={item} />}
-      />
-       </Container>
+        <Container>
+          <List
+            data={ItensCompra}
+            keyExtractor={(item) => item.id}
+            renderItem={(item) => <ListPedido item={item} />}
+          />
+        </Container>
         <AddItens>
           <TouchableOpacity onPress={() => navigation.navigate('PetShop')}>
             <TextItens>Adicionar mais itens</TextItens>
@@ -127,11 +131,11 @@ function Finalizacao({ navigation }) {
           </ViewSpaceBetween>
           <ViewSpaceBetween>
             <TextSubTotal>Frete</TextSubTotal>
-                <TextSubTotal>R$ {moedaMask("'" + frete + "'")}</TextSubTotal>
+            <TextSubTotal>R$ {moedaMask("'" + frete + "'")}</TextSubTotal>
           </ViewSpaceBetween>
           <ViewSpaceBetween>
             <TextTotal>Total</TextTotal>
-            <TextTotal>R$ {moedaMask("'" + (frete + total) + "'")}</TextTotal>
+            <TextTotal>R$ {moedaMask("'" + (parseInt(frete) + parseInt(total)) + "'")}</TextTotal>
           </ViewSpaceBetween>
         </ViewText>
       </SpaceOfOrder>
@@ -147,7 +151,7 @@ function Finalizacao({ navigation }) {
                 </CardBackground>
               </Box>
               <ViewText>
-                <Text>Cartão de Crédito/Débito</Text>
+                <Text>Forma de Pagamento de Entrega</Text>
                 <Address>selecione o tipo de pagamento</Address>
               </ViewText>
             </Content>

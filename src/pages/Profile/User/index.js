@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React, { useContext } from 'react';
 import Back from '../../../components/Back';
 import logo from '../../../assets/logo.jpg';
 import { user } from '../../../data/data';
@@ -15,8 +15,8 @@ import {
 } from './styles';
 
 function User() {
-  const {signed,signIn} = useContext(AuthContext)
-  console.log(signed.user[0].nome);
+  const { signed, signIn } = useContext(AuthContext)
+  console.log(signed.user[0]);
 
   return (
     <Container>

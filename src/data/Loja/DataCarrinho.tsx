@@ -1,100 +1,100 @@
-import React, { createContext,useState } from 'react'
+import React, { createContext, useState } from 'react'
 
-interface AuthContextData{
-  ItensCompra:Object[];
-    GetObeject(id,nome,valor,url,qtde,frete): Object;
-    AlterarObeject(id,qtde):Object
-    Total:string
-    frete:string
+interface AuthContextData {
+  ItensCompra: Object[];
+  GetObeject(id, nome, valor, url, qtde, frete): Object;
+  AlterarObeject(id, qtde): Object
+  Total: string
+  frete
 }
 
 const CompraContext = createContext({} as AuthContextData);
 export const CompraProvider = ({ children }) => {
 
-    const [compras,setCompra] = useState([]);
+  const [compras, setCompra] = useState([]);
 
-    const [total,settotal] = useState();
+  const [total, settotal] = useState(0);
 
-    const [frete,SetFrete] = useState();
+  const [frete, SetFrete] = useState(0);
 
-         function GetObeject(id,nome,valor,url,qtde,frete){
+  function GetObeject(id, nome, valor, url, qtde, frete) {
 
-         const compra = {
+    const compra = {
 
-           id:id,
+      id: id,
 
-           nome:nome,
+      nome: nome,
 
-           valor:valor,
+      valor: valor,
 
-           url:url,
+      url: url,
 
-           qtde:qtde,
+      qtde: qtde,
 
-           frete:frete
+      frete: frete
 
-         }
-
-         console.log(frete)
-
-
-         SetFrete(compra.frete)
-
-        compras.push(compra)
-
-        setCompra(compras)
-
-        Total()
-
-         return compras
-
-       }
-
-       function AlterarObeject(id,qtde){
-
-         compras.forEach(element => {
-
-           if(element.id == id){
-
-            element.qtde = qtde
-
-           }
-
-         });
-
-         setCompra(compras)
-
-         Total()
-
-        return compras
-      }
-
-      function Total(){
-
-        var resultado = 0;
-
-       const resul = compras.forEach(element => {
-
-        const  a = element.valor * element.qtde
+    }
+    console.log(frete)
+    console.log(frete)
 
 
-        resultado += a;
+    SetFrete(compra.frete)
 
-       });
+    compras.push(compra)
 
-       settotal(resultado)
+    setCompra(compras)
+
+    Total()
+
+    return compras
+
+  }
+
+  function AlterarObeject(id, qtde) {
+
+    compras.forEach(element => {
+
+      if (element.id == id) {
+
+        element.qtde = qtde
 
       }
 
+    });
+
+    setCompra(compras)
+
+    Total()
+
+    return compras
+  }
+
+  function Total() {
+
+    var resultado = 0;
+
+    const resul = compras.forEach(element => {
+
+      const a = element.valor * element.qtde
 
 
-    return (<>
-        <CompraContext.Provider value={{ItensCompra:compras,GetObeject,AlterarObeject,total,frete}}>
+      resultado += a;
 
-            {children}
+    });
 
-        </CompraContext.Provider>
-    </>)
+    settotal(resultado)
+
+  }
+
+
+
+  return (<>
+    <CompraContext.Provider value={{ ItensCompra: compras, GetObeject, AlterarObeject, total, frete }}>
+
+      {children}
+
+    </CompraContext.Provider>
+  </>)
 }
 
 export default CompraContext;

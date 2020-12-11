@@ -6,7 +6,6 @@ import { TouchableHighlight } from 'react-native'
 import LojaContext from '../../../data/Loja/Context'
 
 
-
 const Itens = ({ navigation }) => {
   const { Context, GetId } = useContext(LojaContext)
   const [lista, setlista] = useState('');
@@ -15,7 +14,7 @@ const Itens = ({ navigation }) => {
     if (Context === '2' || Context === '3') {
       setlista(navigation.state.params.item);
     }
-    if (Context === '0') {
+    else {
       data[2]().then((results) => {
         console.log(results)
         return setlista(results)

@@ -33,17 +33,18 @@ function Home({ navigation }) {
     });
   }, []);
 
+  console.log(lista);
   return (
     <Container>
-      <Produtos onPress={() => { navigation.navigate('Alimentos'), Contexto }} />
+      <Produtos onPress={() => { navigation.navigate('Alimentos'), Contexto() }} />
       <Carrossel image={carrosselImage} />
       <List
         data={lista}
-        keyExtractor={(item) => String(item.id)}
+        keyExtractor={(item) => String(item.empresa_id_pedido)}
         renderItem={(item) => (
           <Avaliado
             item={item}
-            onPress={() => navigation.navigate('PetShop')}
+            onPress={() => { GetId(item.item.empresa_id_pedido), navigation.navigate('PetShopAcessorios') }}
           />
         )}
       />

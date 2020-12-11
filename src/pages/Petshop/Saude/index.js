@@ -9,7 +9,7 @@ function Saude({ navigation }) {
 
   const [lista, setlista] = useState('')
   useEffect(() => {
-    data[7](IdLoja, "Saúde").then((results) => {
+    data[9](IdLoja, "Saúde").then((results) => {
 
       return setlista(results)
     })

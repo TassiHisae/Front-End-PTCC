@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Container, List } from "./styles";
 
 import Pedido from "../../../components/Pedido";
@@ -7,13 +7,13 @@ import data from "../../../data/data1";
 
 function Finalizado() {
 
-  const [lista,setlista] = useState('')
+  const [lista, setlista] = useState('')
   useEffect(() => {
-    data[3]('inativo').then((results) => {
-     /*  console.log(results) */
-      return setlista(results)})
+    data[12]().then((results) => {
+      setlista(results)
+    })
   },
-[]
+    []
   )
   return (
     <Container>

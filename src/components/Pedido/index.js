@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ListPedido from '../ListPedido';
 import data from "../../data/data1";
@@ -23,16 +23,17 @@ import {
 
 function Pedido({ item }) {
 
-    function VericaCancel(){
-          Axios
-    }
+  function VericaCancel() {
+    Axios
+  }
 
-  const [itens,setItens] = useState('')
+  const [itens, setItens] = useState('')
   useEffect(() => {
-    data[4](item.item.id).then((results) => {
-      return setItens(results)})
+    data[4](item.item.idpedido).then((results) => {
+      return setItens(results)
+    })
   },
-[]
+    []
   )
   return (
     <Container>
@@ -42,13 +43,13 @@ function Pedido({ item }) {
             <SymbleEnterprise
               color={item.item.color}
               source={{
-                uri: item.item.url,
+                uri: "http://192.168.15.11:3333/uploads/company/save/" + item.item.foto_perfil,
               }}
             />
           </Touchable>
           <Info>
-            <Name>{item.item.name}</Name>
-            <Description>Pedido {'#' + item.item.id}</Description>
+            <Name>{item.item.nome_empresa}</Name>
+            <Description>Pedido {'#' + item.item.idpedido}</Description>
           </Info>
         </Left>
         <PlusInfo>
