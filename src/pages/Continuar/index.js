@@ -28,7 +28,11 @@ function Continuar({ navigation }) {
   const [celular  , setCelular ] = useState('');
   const [telefone  , setTelefone ] = useState('');
 
-
+ console.log(cpf)
+ console.log(senha)
+ console.log(email)
+ console.log(nascimento)
+ console.log(nome)
 
 
   async function Cadastrar(){

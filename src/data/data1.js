@@ -110,4 +110,13 @@ export default [
     });
 
   },
+  function Altera_usuario_17(id,nome,cpf, email,senha) {
+
+    return Api.post('/altera_usuario',{id:id,nome:nome,cpf:cpf,email:email,senha:senha}).then((results) => {
+
+      return results.data;
+
+    });
+
+  },
 ];
