@@ -17,7 +17,7 @@ export const CompraProvider = ({ children }) => {
 
   const [frete, SetFrete] = useState(0);
 
-  function GetObeject(id, nome, valor, url, qtde, frete) {
+  function GetObeject(id, nome, valor, url, qtde, frete,idempresa) {
 
     const compra = {
 
@@ -31,7 +31,9 @@ export const CompraProvider = ({ children }) => {
 
       qtde: qtde,
 
-      frete: frete
+      frete: frete,
+
+      idempresa:idempresa
 
     }
     console.log(frete)

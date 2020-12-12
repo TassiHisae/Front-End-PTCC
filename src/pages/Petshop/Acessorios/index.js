@@ -9,7 +9,7 @@ import LojaContext from '../../../data/Loja/Context'
 function Acessorios({ navigation }) {
 
   const { IdLoja } = useContext(LojaContext);
-  console.log(IdLoja);
+
 
   const [lista, setlista] = useState('')
   useEffect(() => {
@@ -19,7 +19,7 @@ function Acessorios({ navigation }) {
   },
     [])
 
-  console.log(lista);
+
   return (
     <Container>
       <List

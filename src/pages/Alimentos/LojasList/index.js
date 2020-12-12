@@ -17,7 +17,7 @@ import {
 } from "./styles";
 
 function Avaliado({ item, navigation }) {
-  console.log(item);
+
   const { GetId } = useContext(LojaContext)
 
   function setId() {

@@ -16,7 +16,6 @@ import {
 
 function User() {
   const { signed, signIn } = useContext(AuthContext)
-  console.log(signed.user[0]);
 
   return (
     <Container>

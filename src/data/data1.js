@@ -24,20 +24,19 @@ export default [
   },
   function Itens_Pedidos_4(id) {
     return Api.post('/Order_Details', { id: id }).then((results) => {
-      /* console.log("TESTE"+results.data.filter("status")==="ativo")*/
+
       return results.data;
     });
   },
   function Itens_Pedidos_5(id) {
     return Api.post('/Lista_Produtos_Pedidos', { id: id }).then((results) => {
-      /* console.log("TESTE"+results.data.filter("status")==="ativo")*/
+
       return results.data;
     });
   },
   function verifica_Cancel_6(id) {
-    console.log("ID" + id)
+
     return Api.post('/verificaCancel', { id: id }).then((results) => {
-      /* console.log("TESTE"+results.data.filter("status")==="ativo")*/
 
       return results.data;
     });
@@ -45,7 +44,7 @@ export default [
 
   function Item_Loja_acessorios_7(id) {
     return Api.post('/List_Product_Category', { "idempresa": id, "categoria": "Acessórios" }).then((results) => {
-      /* console.log("TESTE"+results.data.filter("status")==="ativo")*/
+
 
       return results.data;
     });
@@ -53,7 +52,7 @@ export default [
 
   function Item_Loja_alimentos_8(id) {
     return Api.post('/List_Product_Category', { "idempresa": id, "categoria": "Alimentos" }).then((results) => {
-      /* console.log("TESTE"+results.data.filter("status")==="ativo")*/
+
 
       return results.data;
     });
@@ -61,7 +60,7 @@ export default [
 
   function Item_Loja_saúde_9(id) {
     return Api.post('/List_Product_Category', { "idempresa": id, "categoria": "Saúde" }).then((results) => {
-      /* console.log("TESTE"+results.data.filter("status")==="ativo")*/
+
 
       return results.data;
     });
@@ -80,5 +79,35 @@ export default [
     return Api.post('/List_Pedidos_Inativos', { id: "idusuario = 7" }).then((results) => {
       return results.data;
     });
+  },
+  function Comprar_13(total,data_pedido,previsao,empresa_id_pedido,usuario_id_pedido,endereco_usuario_id_pedido,idusuario_pedidos,status,forma_pagamento) {
+    return Api.post('/Compra',{"total":total,"data_pedido":data_pedido,"previsao":previsao,"empresa_id_pedido":empresa_id_pedido,"usuario_id_pedido":usuario_id_pedido,"endereco_usuario_id_pedido":endereco_usuario_id_pedido,idusuario_pedidos:idusuario_pedidos,"status":idusuario_pedidos,"status":status,"forma_pagamento":forma_pagamento}).then((results) => {
+
+      return results.data;
+    });
+  },
+  function CadastraPedido_14(valorItem, QtdeItem, IdProduto, IdPedido) {
+
+    return Api.post('/Cadastra_pedido',{valorItem:valorItem,QtdeItem:QtdeItem,IdProduto:IdProduto,IdPedido:IdPedido}).then((results) => {
+
+      return results.data;
+    });
+  },
+  function StatusPedido_15(data_status, pedido_id_status) {
+
+    return Api.post('/status_pedido',{data_status:data_status,pedido_id_status:pedido_id_status}).then((results) => {
+
+      return results.data;
+    });
+  },
+
+  function StatusPedido_16(id_pedido) {
+
+    return Api.post('/status_entregue',{id_pedido:id_pedido}).then((results) => {
+
+      return results.data;
+
+    });
+
   },
 ];

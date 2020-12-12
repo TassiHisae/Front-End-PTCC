@@ -1,10 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext,useState,useEffect } from 'react';
+
 import { TouchableOpacity } from 'react-native';
+
 import CompraContext from '../../data/Loja/DataCarrinho'
+
 import ListPedido from "../../components/ListCompras/ItemCompra";
+
 import { List } from './styles'
+
 import Lista from '../Alimentos/ItensList'
+
 import { moedaMask } from '../../Mascara/mask';
+
+import data  from '../../data/data1'
+
+import AuthContext from '../../auth/auth'
+
 import {
   Container,
   SpaceOfAddress,
@@ -46,44 +57,83 @@ import Back from '../../components/Back';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import foto from '../../assets/produto.jpg';
 
-import { useState } from 'react';
 
 
 function Finalizacao({ navigation }) {
 
   const [marked, setMarked] = useState(false);
+
   const [marked1, setMarked1] = useState(false);
+
   const [marked2, setMarked2] = useState(false);
+
   const [marked3, setMarked3] = useState(false);
+
+  const [pagamento,setPagamento] = useState("Crédito")
+
+  const [Pedido_id_resultado,SetPedido_id_resultado] = useState()
+
   const { ItensCompra } = useContext(CompraContext);
 
   const { total, frete } = useContext(CompraContext);
-  console.log("estou somando os dois")
 
-  console.log(frete)
-  console.log(total)
+  const { signed, signIn } = useContext(AuthContext)
+
+   const [idDoPedido,setIdDoPedio] = useState();
+
 
   function verifica1() {
     setMarked1(true)
     setMarked2(false)
     setMarked3(false)
+    setPagamento("Crédito")
   }
 
   function verifica2() {
     setMarked1(false)
     setMarked2(true)
     setMarked3(false)
-
+    setPagamento("Débito")
   }
 
   function verifica3() {
     setMarked1(false)
     setMarked2(false)
     setMarked3(true)
+    setPagamento("Dinheiro")
+  }
+
+  function Comprar(){
+
+    var dNow = new Date();
+
+       const data_pedido = dNow.getFullYear()+ "-" + (dNow.getMonth()+1) + "-" + dNow.getDate();
+       const data_previsao =  dNow.getFullYear()+ "-" + (dNow.getMonth()+1) + "-" + (dNow.getDate()+7);
+       const idempresa = navigation.state.params.idempresa;
+       const idusuario = signed.user[0].idusuario;
+       const endereco = 1;
+       const idusuario_pedido = idusuario;
+       const status = 1;
+       const total_tudo = (parseInt(frete) + parseInt(total))
+
+       data[13](total_tudo,data_pedido,data_previsao,idempresa,idusuario,endereco,idusuario_pedido,status,pagamento).then((results) => {
+
+          SetPedido_id_resultado(results)
+
+                 return results
+        })
+
+        ItensCompra.forEach(element => {
+
+           data[14](element.valor,element.qtde,element.id,idDoPedido)
+
+       });
+
+       navigation.navigate('Home')
 
   }
 
-  console.log(frete + total);
+
   return (
     <Container>
       <SpaceOfAddress>
@@ -185,7 +235,7 @@ function Finalizacao({ navigation }) {
         </Cpf>
 
       </SpaceOfPayment>
-      <Button onPress={() => navigation.navigate('Home')}>
+      <Button onPress={Comprar}>
         <TextButton >Finalizar</TextButton>
       </Button>
     </Container>

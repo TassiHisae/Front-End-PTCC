@@ -16,8 +16,7 @@ import {
 } from './styles';
 
 function ListPedido({ item }) {
-  console.log('Estou no itemLista');
-  console.log(item.item);
+
 
   const {AlterarObeject} = useContext(CompraContext)
   const [quantidade,setQuantidade] = useState(item.item.qtde);

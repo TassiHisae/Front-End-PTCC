@@ -25,8 +25,7 @@ function Search({ navigation }) {
   }
 
   function pesquisar(e) {
-    console.log(e.nativeEvent.text);
-    console.log(filtro);
+
     let texto = e.nativeEvent.text;
     if (filtro === '0') {
       data[10]("nome_prod", texto).then(

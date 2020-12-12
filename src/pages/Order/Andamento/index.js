@@ -11,13 +11,16 @@ function Andamento() {
   const { signed, signIn } = useContext(AuthContext)
 
   useEffect(() => {
+
     data[3](signed.user[0].idusuario).then((results) => {
+
       setlista(results);
+
     })
   },
     []
   )
-  console.log(lista);
+
   return (
     <Container>
       <List

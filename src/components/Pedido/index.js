@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ListPedido from '../ListPedido';
-import data from "../../data/data1";
+import data from '../../data/data1';
+import { Alert, TouchableHighlight } from 'react-native';
 
 import {
   Container,
@@ -22,19 +23,55 @@ import {
 } from './styles';
 
 function Pedido({ item }) {
-
   function VericaCancel() {
-    Axios
+    Axios;
   }
 
-  const [itens, setItens] = useState('')
-  useEffect(() => {
-    data[4](item.item.idpedido).then((results) => {
-      return setItens(results)
+  const [itens, setItens] = useState('');
+  const [Empresa, setEmpresa] = useState('Já recebi meu Pedido');
+  console.log(item)
+
+/  useEffect(() => {
+
+
+
+    data[16](item.item.idpedido).then(results => {
+
+            results.map(Element => {
+
+                    if( Element.status_detalhe == "Entregue" ){
+                      setEmpresa("Pedido Recebido")
+                    }
+
+            })
     })
-  },
-    []
-  )
+    data[4](item.item.idpedido).then((results) => {
+
+      return setItens(results);
+
+    });
+
+
+  }, []);
+
+  function Entregue() {
+    if(Empresa === 'Já recebi meu Pedido'){
+    let data_atual = new Date();
+    let data_aceito = `${data_atual.getDate()}-${
+      data_atual.getMonth() + 1
+    }-${data_atual.getFullYear()}`;
+    let hora_aceito = `${data_atual.getHours()}:${data_atual.getMinutes()}`;
+
+    var data_hora_aceito = `${data_aceito} ${hora_aceito}`;
+
+    data[15](data_hora_aceito, item.item.idpedido).then((results) => {
+      console.log('Foi');
+      Alert('O status foi alterado');
+      setEmpresa('Aguardado a finalização da empresa');
+    });
+  }
+
+  }
   return (
     <Container>
       <Content>
@@ -43,7 +80,9 @@ function Pedido({ item }) {
             <SymbleEnterprise
               color={item.item.color}
               source={{
-                uri: "http://192.168.15.11:3333/uploads/company/save/" + item.item.foto_perfil,
+                uri:
+                  'http://192.168.15.11:3333/uploads/company/save/' +
+                  item.item.foto_perfil,
               }}
             />
           </Touchable>
@@ -77,9 +116,10 @@ function Pedido({ item }) {
       </Content>
       <ContentButton>
         <Button color="#f5f5f5" txtColor="#2dc7ff" OnPress={VericaCancel}>
-          <TextButton>Cancelar Pedido</TextButton>
+          <TouchableHighlight onPress={Entregue}>
+            <TextButton>{Empresa}</TextButton>
+          </TouchableHighlight>
         </Button>
-
       </ContentButton>
     </Container>
   );

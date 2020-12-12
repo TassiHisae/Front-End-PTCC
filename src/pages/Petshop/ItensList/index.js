@@ -17,7 +17,7 @@ import {
 } from './styles';
 
 function Avaliado({ item, ...rest }) {
-  console.log(item.item)
+
   return (
     <Container {...rest} >
 

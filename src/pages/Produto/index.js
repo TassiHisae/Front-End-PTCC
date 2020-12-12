@@ -20,17 +20,13 @@ import data from '../../data/data1';
 import { moedaMask, numeroMask } from '../../Mascara/mask';
 
 function Produto({ navigation }) {
-  console.log(navigation);
+
   const { item } = navigation.state.params;
-  console.log(item);
+console.log( navigation.state.params.item.idempresa)
   const { GetObeject, ItensCompra } = useContext(CompraContext)
   const [qtde, setQtde] = useState(1);
 
   async function carrinho() {
-
-    console.log("estou no produto")
-
-    console.log(item.frete)
 
     var verifica = true;
 
@@ -42,18 +38,22 @@ function Produto({ navigation }) {
 
       }
 
+      if(element.idempresa !== item.idempresa){
+        verifica = false;
+      }
+
     });
 
     if (verifica) {
 
-      const Compras = await GetObeject(item.idproduto, item.nome_prod, item.valor, "http://192.168.15.11:3333/uploads/product/save/" + item.foto_principal, qtde, numeroMask(item.frete))
+      const Compras = await GetObeject(item.idproduto, item.nome_prod, item.valor, "http://192.168.15.11:3333/uploads/product/save/" + item.foto_principal, qtde, numeroMask(item.frete),item.idempresa)
 
       navigation.navigate('Finalizacao', item)
 
     } else {
 
-      alert("Produto já existe no carrinho")
-
+      alert("Produto já existe no carrinho ou é de outra loja")
+      navigation.navigate('Finalizacao',item)
     }
 
 

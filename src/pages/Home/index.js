@@ -33,7 +33,7 @@ function Home({ navigation }) {
     });
   }, []);
 
-  console.log(lista);
+
   return (
     <Container>
       <Produtos onPress={() => { navigation.navigate('Alimentos'), Contexto() }} />

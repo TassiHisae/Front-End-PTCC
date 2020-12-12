@@ -14,8 +14,7 @@ export const AuthProvider = ({ children }) => {
     async function signIn(email, pass) {
 
         const response = await auth(email, pass);
-        console.log("Estou passando pela auth")
-        console.log(user)
+
         setUser(response)
 
     }

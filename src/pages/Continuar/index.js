@@ -29,19 +29,19 @@ function Continuar({ navigation }) {
   const [telefone  , setTelefone ] = useState('');
 
 
-  console.log(navigation.state.params.routes)
+
 
   async function Cadastrar(){
 
     await Cadastrar_Banco(cpf,senha,email,nascimento,nome,telefone,celular).then(results=>{
 
           if(results >= 1){
-          console.log("Cadastrado com sucesso")
+
           navigation.navigate("Home")
           }
           else
           {
-            console.log("Não foi possivel cadastrar")
+
             Alert.alert(
               "Tente Novamente",
               "Não foi possivel realizar o cadastro")

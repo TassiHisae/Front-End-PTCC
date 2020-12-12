@@ -7,9 +7,9 @@ import { Container, List } from "./styles";
 function Lojas({ navigation }) {
   const [lista, setlista] = useState('')
   const { Context } = useContext(LojaContext)
-  console.log(navigation);
+
   useEffect(() => {
-    console.log(Context);
+
     if (Context === '1') {
       setlista(navigation.state.params.item);
     }
@@ -20,8 +20,6 @@ function Lojas({ navigation }) {
     }
   },
     [])
-
-  console.log(lista);
   return (
     <List
       data={lista}
